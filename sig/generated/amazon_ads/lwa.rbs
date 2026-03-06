@@ -1,39 +1,37 @@
 # Generated from lib/amazon_ads/lwa.rb with RBS::Inline
 
 module AmazonAds
-  # Requests Login with Amazon (LWA) access tokens for the Amazon Ads API.
-  # Handles token caching and automatic refresh when tokens expire.
-  #
-  # @see https://advertising.amazon.com/API/docs/en-us/info/api-overview
+  # Requests Login with Amazon (LWA) access tokens for the Amazon Ads API
+  # Stateless: each call to #request hits the token endpoint; the caller
+  # owns caching
   class LWA
     URL: String
 
-    TOKEN_EXPIRY_BUFFER: Integer
-
-    attr_reader client_id: String
-
-    attr_reader client_secret: String
-
+    # The OAuth refresh token
     attr_reader refresh_token: String
 
-    # : (?client_id: String, ?client_secret: String, ?refresh_token: String) -> void
-    def initialize: (?client_id: String, ?client_secret: String, ?refresh_token: String) -> void
+    # : (**untyped) -> Hash[String, untyped]
+    def self.request: (**untyped) -> Hash[String, untyped]
 
-    # Returns a valid access token, refreshing if necessary.
-    # : () -> String
-    def access_token: () -> String
+    # : (refresh_token: String, ?http: untyped) -> void
+    def initialize: (refresh_token: String, ?http: untyped) -> void
 
-    # Forces a token refresh regardless of expiry.
-    # : () -> String
-    def refresh!: () -> String
-
-    # Returns true if the token is expired or not yet fetched.
-    # : () -> bool
-    def token_expired?: () -> bool
+    # Requests a fresh access token from LWA
+    # : () -> Hash[String, untyped]
+    def request: () -> Hash[String, untyped]
 
     private
 
-    # : () -> Hash[String, String]
-    def params: () -> Hash[String, String]
+    # : () -> HTTP::Client
+    def http: () -> HTTP::Client
+
+    # : () -> Hash[Symbol, String]
+    def params: () -> Hash[Symbol, String]
+
+    # : () -> String
+    def client_id: () -> String
+
+    # : () -> String
+    def client_secret: () -> String
   end
 end

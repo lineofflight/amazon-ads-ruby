@@ -2,15 +2,29 @@
 
 # Amazon Ads API client for Ruby
 module AmazonAds
-  # Returns the global configuration object.
-  # : () -> Configuration
-  def self.configuration: () -> Configuration
+  # Returns the client ID
+  # Falls back to the `AMAZON_ADS_CLIENT_ID` env var
+  # : () -> String?
+  def self.client_id: () -> String?
 
-  # Configures the AmazonAds library.
-  # : () { (Configuration) -> void } -> void
-  def self.configure: () { (Configuration) -> void } -> void
+  # Sets the client ID
+  # : (String?) -> String?
+  attr_writer client_id: untyped
 
-  # Resets the configuration to defaults.
-  # : () -> void
-  def self.reset_configuration!: () -> void
+  # Returns the client ID or raises
+  # : () -> String
+  def self.client_id!: () -> String
+
+  # Returns the client secret
+  # Falls back to the `AMAZON_ADS_CLIENT_SECRET` env var
+  # : () -> String?
+  def self.client_secret: () -> String?
+
+  # Sets the client secret
+  # : (String?) -> String?
+  attr_writer client_secret: untyped
+
+  # Returns the client secret or raises
+  # : () -> String
+  def self.client_secret!: () -> String
 end

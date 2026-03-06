@@ -1,61 +1,43 @@
 # Generated from lib/amazon_ads/api.rb with RBS::Inline
 
 module AmazonAds
-  # Base class for Amazon Ads API clients.
-  # Handles authentication, response parsing, error mapping, and retry logic.
+  # Base class for Amazon Ads API endpoints
   class API
     ENDPOINTS: untyped
 
-    MAX_RETRIES: Integer
-
-    BASE_RETRY_DELAY: Integer
-
+    # API endpoint region
     attr_reader region: Symbol
 
+    # LWA access token
+    attr_reader access_token: String
+
+    # Advertiser profile, scopes requests to a marketplace
     attr_reader profile_id: String?
 
-    # : (region: Symbol, ?access_token: String?, ?lwa: LWA?, ?profile_id: String?) -> void
-    def initialize: (region: Symbol, ?access_token: String?, ?lwa: LWA?, ?profile_id: String?) -> void
+    # Advertiser account
+    attr_reader account_id: String?
 
-    private
+    # Number of retries when throttled (default: 0)
+    attr_reader retries: Integer
 
-    # Returns the current access token, refreshing via LWA if needed.
-    # : () -> String
-    def access_token: () -> String
+    # : (region: Symbol | String, access_token: String, ?profile_id: String?, ?account_id: String?, ?retries: Integer, ?http: untyped) -> void
+    def initialize: (region: Symbol | String, access_token: String, ?profile_id: String?, ?account_id: String?, ?retries: Integer, ?http: untyped) -> void
+
+    # : () -> URI::HTTPS
+    def endpoint: () -> URI::HTTPS
 
     # : () -> HTTP::Client
     def http: () -> HTTP::Client
+
+    private
+
+    # : (Symbol, String, **untyped) -> HTTP::Response
+    def request: (Symbol, String, **untyped) -> HTTP::Response
 
     # : () -> Hash[String, String]
     def default_headers: () -> Hash[String, String]
 
     # : () -> String
     def client_id: () -> String
-
-    # : () -> String
-    def endpoint: () -> String
-
-    # Handles HTTP response, raising appropriate errors or parsing success responses.
-    # : (HTTP::Response) -> untyped
-    def handle_response: (HTTP::Response) -> untyped
-
-    # Executes request with retry logic for rate limiting.
-    # : () { () -> HTTP::Response } -> untyped
-    def with_retry: () { () -> HTTP::Response } -> untyped
-
-    # : (String, ?params: Hash[String, untyped]) -> untyped
-    def get: (String, ?params: Hash[String, untyped]) -> untyped
-
-    # : (String, ?body: Hash[String, untyped]) -> untyped
-    def post: (String, ?body: Hash[String, untyped]) -> untyped
-
-    # : (String, ?body: Hash[String, untyped]) -> untyped
-    def put: (String, ?body: Hash[String, untyped]) -> untyped
-
-    # : (String, ?body: Hash[String, untyped]) -> untyped
-    def patch: (String, ?body: Hash[String, untyped]) -> untyped
-
-    # : (String) -> untyped
-    def delete: (String) -> untyped
   end
 end

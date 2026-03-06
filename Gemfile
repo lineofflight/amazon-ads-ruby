@@ -8,7 +8,9 @@ gemspec(name: "amazon-ads")
 gem "irb"
 gem "rake"
 
+gem "dotenv"
 gem "minitest"
+gem "vcr"
 gem "webmock"
 
 gem "rubocop-minitest", require: false

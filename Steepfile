@@ -9,5 +9,7 @@ target :lib do
 
   collection_config "rbs_collection.yaml"
 
+  library("uri")
+
   configure_code_diagnostics(D::Ruby.lenient)
 end

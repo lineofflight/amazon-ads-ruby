@@ -31,9 +31,15 @@ desc "Generate API classes from OpenAPI specs"
 task :generate do
   require_relative "lib/generator/specs"
   require_relative "lib/generator/api"
-  Generator::Specs::SPECS.each_key do |name|
-    Generator::API.new(name.to_s).save
+
+  # v1 merged spec: generate one class per tag
+  Generator::API.generate_by_tags("amazon_ads")
+
+  # REST specs: generate one class each
+  # reporting is handwritten (complex nested configuration param)
+  ["profiles", "marketing_stream"].each do |name|
+    Generator::API.new(name).save
   end
 end
 
-task default: [:test, :rubocop]
+task default: [:rubocop, :steep, :test]

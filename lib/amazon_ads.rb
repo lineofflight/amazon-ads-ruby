@@ -8,30 +8,43 @@ loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect("api" => "API", "lwa" => "LWA")
 loader.collapse("#{__dir__}/amazon_ads/apis")
 loader.ignore("#{__dir__}/generator")
-loader.ignore("#{__dir__}/amazon_ads/errors.rb")
 loader.setup
-
-require_relative "amazon_ads/errors"
 
 # Amazon Ads API client for Ruby
 module AmazonAds
   class << self
-    # Returns the global configuration object.
-    #: () -> Configuration
-    def configuration
-      @configuration ||= Configuration.new
+    # Returns the client ID
+    # Falls back to the `AMAZON_ADS_CLIENT_ID` env var
+    #: () -> String?
+    def client_id
+      @client_id || ENV["AMAZON_ADS_CLIENT_ID"]
     end
 
-    # Configures the AmazonAds library.
-    #: () { (Configuration) -> void } -> void
-    def configure
-      yield(configuration)
+    # Sets the client ID
+    #: (String?) -> String?
+    attr_writer :client_id
+
+    # Returns the client ID or raises
+    #: () -> String
+    def client_id!
+      client_id or raise ArgumentError, "client id is required"
     end
 
-    # Resets the configuration to defaults.
-    #: () -> void
-    def reset_configuration!
-      @configuration = Configuration.new
+    # Returns the client secret
+    # Falls back to the `AMAZON_ADS_CLIENT_SECRET` env var
+    #: () -> String?
+    def client_secret
+      @client_secret || ENV["AMAZON_ADS_CLIENT_SECRET"]
+    end
+
+    # Sets the client secret
+    #: (String?) -> String?
+    attr_writer :client_secret
+
+    # Returns the client secret or raises
+    #: () -> String
+    def client_secret!
+      client_secret or raise ArgumentError, "client secret is required"
     end
   end
 end

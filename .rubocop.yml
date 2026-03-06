@@ -7,3 +7,7 @@ plugins:
 
 AllCops:
   TargetRubyVersion: 3.3
+
+Naming/AccessorMethodName:
+  Exclude:
+    - "lib/amazon_ads/apis/**/*.rb"

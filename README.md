@@ -18,36 +18,40 @@ gem install amazon-ads
 
 ## Configuration
 
-Configure with your Amazon Ads API credentials:
+Set your app credentials at the module level or via environment variables:
 
 ```ruby
-AmazonAds.configure do |config|
-  config.client_id = "your_client_id"
-  config.client_secret = "your_client_secret"
-  config.refresh_token = "your_refresh_token"
-  config.region = :na  # :na, :eu, or :fe
-end
+AmazonAds.client_id = "your_client_id"
+AmazonAds.client_secret = "your_client_secret"
 ```
 
-Or set environment variables:
-
-- `AMAZON_ADS_CLIENT_ID`
-- `AMAZON_ADS_CLIENT_SECRET`
-- `AMAZON_ADS_REFRESH_TOKEN`
+Or set `AMAZON_ADS_CLIENT_ID` and `AMAZON_ADS_CLIENT_SECRET`.
 
 ## Usage
 
+Request an access token via Login with Amazon (LWA):
+
 ```ruby
-client = AmazonAds::Client.new
+data = AmazonAds::LWA.request(refresh_token: "your_refresh_token")
+access_token = data.fetch("access_token")
+```
 
+The caller owns token caching. Store and reuse the token until it expires.
+
+Make requests:
+
+```ruby
 # List advertising profiles
-profiles = client.profiles.list
+profiles = AmazonAds::Profiles.new(region: :na, access_token: access_token)
+profiles.list_profiles
 
-# Switch to a specific profile
-client = client.with_profile(profiles.first["profileId"])
-
-# Use Sponsored Products API
-client.sponsored_products.get_bid_recommendations(ad_group_id: "123")
+# List campaigns under a profile
+campaigns = AmazonAds::Campaigns.new(
+  region: :na,
+  access_token: access_token,
+  profile_id: "123456789",
+)
+campaigns.list_campaigns
 ```
 
 ## Development

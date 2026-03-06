@@ -5,46 +5,68 @@
 require "http"
 
 module AmazonAds
-  # Base class for Amazon Ads API clients.
-  # Handles authentication, response parsing, error mapping, and retry logic.
+  # Base class for Amazon Ads API endpoints
   class API
     ENDPOINTS = { #: Hash[Symbol, String]
-      na: "https://advertising-api.amazon.com",
-      eu: "https://advertising-api-eu.amazon.com",
-      fe: "https://advertising-api-fe.amazon.com",
+      na: "advertising-api.amazon.com",
+      eu: "advertising-api-eu.amazon.com",
+      fe: "advertising-api-fe.amazon.com",
     }.freeze
 
-    MAX_RETRIES = 3 #: Integer
-    BASE_RETRY_DELAY = 1 #: Integer
-
+    # API endpoint region
     attr_reader :region #: Symbol
+
+    # LWA access token
+    attr_reader :access_token #: String
+
+    # Advertiser profile, scopes requests to a marketplace
     attr_reader :profile_id #: String?
 
-    #: (region: Symbol, ?access_token: String?, ?lwa: LWA?, ?profile_id: String?) -> void
-    def initialize(region:, access_token: nil, lwa: nil, profile_id: nil)
-      @region = region
-      @access_token = access_token
-      @lwa = lwa
-      @profile_id = profile_id
+    # Advertiser account
+    attr_reader :account_id #: String?
 
-      unless @access_token || @lwa
-        raise ArgumentError, "Either access_token or lwa must be provided"
+    # Number of retries when throttled (default: 0)
+    attr_reader :retries #: Integer
+
+    #: (region: Symbol | String, access_token: String, ?profile_id: String?, ?account_id: String?, ?retries: Integer, ?http: untyped) -> void
+    def initialize(region:, access_token:, profile_id: nil, account_id: nil, retries: 0, http: HTTP)
+      @region = region.to_s.downcase.to_sym
+      @access_token = access_token
+      @profile_id = profile_id
+      @account_id = account_id
+      @retries = retries
+      @http = http
+    end
+
+    #: () -> URI::HTTPS
+    def endpoint
+      URI::HTTPS.build(host: ENDPOINTS.fetch(region) do
+        raise ArgumentError, "Unknown region: #{region}"
+      end)
+    end
+
+    #: () -> HTTP::Client
+    def http
+      client = @http
+        .headers(default_headers)
+        .use(:auto_inflate)
+
+      if retries.zero?
+        client.use(:raise_error)
+      else
+        client
+          .use(raise_error: { ignore: [429] })
+          .retriable(tries: retries + 1, retry_statuses: [429])
       end
     end
 
     private
 
-    # Returns the current access token, refreshing via LWA if needed.
-    #: () -> String
-    def access_token
-      @lwa ? @lwa.access_token : @access_token or raise AmazonAds::AuthenticationError, "No access token"
-    end
-
-    #: () -> HTTP::Client
-    def http
-      HTTP
-        .headers(default_headers)
-        .use(:auto_inflate)
+    #: (Symbol, String, **untyped) -> HTTP::Response
+    def request(method, path, **options)
+      url = endpoint
+      url.path = path
+      http.request(method, url, **options)
     end
 
     #: () -> Hash[String, String]
@@ -56,86 +78,14 @@ module AmazonAds
         "Accept" => "application/json",
       }
       headers["Amazon-Advertising-API-Scope"] = profile_id if profile_id
+      headers["Amazon-Ads-AccountId"] = account_id if account_id
 
       headers
     end
 
     #: () -> String
     def client_id
-      ENV.fetch("AMAZON_ADS_CLIENT_ID")
-    end
-
-    #: () -> String
-    def endpoint
-      ENDPOINTS.fetch(region) do
-        raise ArgumentError, "Unknown region: #{region}"
-      end
-    end
-
-    # Handles HTTP response, raising appropriate errors or parsing success responses.
-    #: (HTTP::Response) -> untyped
-    def handle_response(response)
-      case response.status.code
-      when 200..299
-        return if response.body.to_s.empty?
-
-        response.parse
-      when 400
-        raise AmazonAds::BadRequestError.new("Bad request", response: response)
-      when 401
-        raise AmazonAds::AuthenticationError.new("Unauthorized", response: response)
-      when 404
-        raise AmazonAds::NotFoundError.new("Not found", response: response)
-      when 429
-        retry_after = response.headers["Retry-After"]&.to_i
-        raise AmazonAds::RateLimitError.new("Rate limited", response: response, retry_after: retry_after)
-      when 500..599
-        raise AmazonAds::ServerError.new("Server error", response: response)
-      else
-        raise AmazonAds::Error.new("Request failed with status #{response.status.code}", response: response)
-      end
-    end
-
-    # Executes request with retry logic for rate limiting.
-    #: () { () -> HTTP::Response } -> untyped
-    def with_retry(&block)
-      retries = 0
-
-      loop do
-        response = yield
-        return handle_response(response)
-      rescue AmazonAds::RateLimitError => e
-        retries += 1
-        raise if retries > MAX_RETRIES
-
-        delay = e.retry_after || (BASE_RETRY_DELAY * (2**(retries - 1)))
-        sleep(delay)
-      end
-    end
-
-    #: (String, ?params: Hash[String, untyped]) -> untyped
-    def get(path, params: {})
-      with_retry { http.get("#{endpoint}#{path}", params: params) }
-    end
-
-    #: (String, ?body: Hash[String, untyped]) -> untyped
-    def post(path, body: {})
-      with_retry { http.post("#{endpoint}#{path}", json: body) }
-    end
-
-    #: (String, ?body: Hash[String, untyped]) -> untyped
-    def put(path, body: {})
-      with_retry { http.put("#{endpoint}#{path}", json: body) }
-    end
-
-    #: (String, ?body: Hash[String, untyped]) -> untyped
-    def patch(path, body: {})
-      with_retry { http.patch("#{endpoint}#{path}", json: body) }
-    end
-
-    #: (String) -> untyped
-    def delete(path)
-      with_retry { http.delete("#{endpoint}#{path}") }
+      AmazonAds.client_id!
     end
   end
 end
