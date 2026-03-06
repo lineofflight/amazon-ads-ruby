@@ -1,0 +1,9 @@
+# Generated from lib/amazon_ads/apis/brand_store_editions.rb with RBS::Inline
+
+module AmazonAds
+  class BrandStoreEditions < API
+    # Retrieve brand store page content
+    # : (brand_store_id: String, ?next_token: String?, ?max_results: Integer?) -> HTTP::Response
+    def list_brand_store_edition: (brand_store_id: String, ?next_token: String?, ?max_results: Integer?) -> HTTP::Response
+  end
+end

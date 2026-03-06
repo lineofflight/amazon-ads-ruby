@@ -1,0 +1,9 @@
+# Generated from lib/amazon_ads/apis/brand_stores.rb with RBS::Inline
+
+module AmazonAds
+  class BrandStores < API
+    # Query brand store content
+    # : (store_name_filter: String, ?max_results: Integer?, ?next_token: String?, ?sort: Array[untyped]?) -> HTTP::Response
+    def query_brand_store: (store_name_filter: String, ?max_results: Integer?, ?next_token: String?, ?sort: Array[untyped]?) -> HTTP::Response
+  end
+end

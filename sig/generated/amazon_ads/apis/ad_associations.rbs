@@ -1,0 +1,21 @@
+# Generated from lib/amazon_ads/apis/ad_associations.rb with RBS::Inline
+
+module AmazonAds
+  class AdAssociations < API
+    # Create Ad Association
+    # : (?ad_associations: Array[untyped]?) -> HTTP::Response
+    def create_ad_association: (?ad_associations: Array[untyped]?) -> HTTP::Response
+
+    # Delete Ad Association
+    # : (?ad_association_ids: Array[untyped]?) -> HTTP::Response
+    def delete_ad_association: (?ad_association_ids: Array[untyped]?) -> HTTP::Response
+
+    # Query Ad Association
+    # : (?ad_association_id_filter: String?, ?ad_group_id_filter: String?, ?ad_id_filter: String?, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
+    def query_ad_association: (?ad_association_id_filter: String?, ?ad_group_id_filter: String?, ?ad_id_filter: String?, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
+
+    # Update Ad Association
+    # : (?ad_associations: Array[untyped]?) -> HTTP::Response
+    def update_ad_association: (?ad_associations: Array[untyped]?) -> HTTP::Response
+  end
+end

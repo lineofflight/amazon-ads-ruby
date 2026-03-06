@@ -1,0 +1,56 @@
+# Generated from lib/amazon_ads/apis/marketing_stream.rb with RBS::Inline
+
+module AmazonAds
+  # Amazon Marketing Stream
+  class MarketingStream < API
+    # Create a new subscription Note: trailing slash in request uri is not allowed
+    # @rbs client_request_token: String -- Unique value supplied by the caller used to track identical API requests. Should request be re-tried, the caller should supply the same value. We recommend using GUID.
+    # @rbs data_set_id: String -- Identifier of data set, callers can be subscribed to. Please refer to https://advertising.amazon.com/API/docs/en-us/amazon-marketing-stream/data-guide for the list of all data sets.
+    # @rbs destination_arn: String -- AWS ARN of the destination endpoint associated with the subscription. Supported destination types: - SQS
+    # @rbs notes: String -- Additional details associated with the subscription
+    # : (client_request_token: String, data_set_id: String, ?destination: String?, ?destination_arn: String?, ?notes: String?) -> HTTP::Response
+    def create_dsp_stream_subscription: (client_request_token: String, data_set_id: String, ?destination: String?, ?destination_arn: String?, ?notes: String?) -> HTTP::Response
+
+    # Create a new subscription Note: trailing slash in request uri is not allowed
+    # @rbs client_request_token: String -- Unique value supplied by the caller used to track identical API requests. Should request be re-tried, the caller should supply the same value. We recommend using GUID.
+    # @rbs data_set_id: String -- Identifier of data set, callers can be subscribed to. Please refer to https://advertising.amazon.com/API/docs/en-us/amazon-marketing-stream/data-guide for the list of all data sets.
+    # @rbs destination_arn: String -- AWS ARN of the destination endpoint associated with the subscription. Supported destination types: - SQS
+    # @rbs notes: String -- Additional details associated with the subscription
+    # : (client_request_token: String, data_set_id: String, ?destination: String?, ?destination_arn: String?, ?notes: String?) -> HTTP::Response
+    def create_stream_subscription: (client_request_token: String, data_set_id: String, ?destination: String?, ?destination_arn: String?, ?notes: String?) -> HTTP::Response
+
+    # Fetch a specific subscription by Id Note: trailing slash in request uri is not allowed
+    # @rbs subscription_id: String -- Unique subscription identifier
+    # : (String) -> HTTP::Response
+    def get_dsp_stream_subscription: (String) -> HTTP::Response
+
+    # Fetch a specific subscription by Id Note: trailing slash in request uri is not allowed
+    # @rbs subscription_id: String -- Unique subscription identifier
+    # : (String) -> HTTP::Response
+    def get_stream_subscription: (String) -> HTTP::Response
+
+    # List subscriptions Note: trailing slash in request uri is not allowed
+    # @rbs max_results: Numeric -- desired number of entries in the response, defaults to maximum value
+    # @rbs starting_token: String -- Token which can be used to get the next page of results, if more entries exist
+    # : (?max_results: Numeric?, ?starting_token: String?) -> HTTP::Response
+    def list_dsp_stream_subscriptions: (?max_results: Numeric?, ?starting_token: String?) -> HTTP::Response
+
+    # List subscriptions Note: trailing slash in request uri is not allowed
+    # @rbs max_results: Numeric -- desired number of entries in the response, defaults to maximum value
+    # @rbs starting_token: String -- Token which can be used to get the next page of results, if more entries exist
+    # : (?max_results: Numeric?, ?starting_token: String?) -> HTTP::Response
+    def list_stream_subscriptions: (?max_results: Numeric?, ?starting_token: String?) -> HTTP::Response
+
+    # Update an existing subscription Note: trailing slash in request uri is not allowed
+    # @rbs subscription_id: String -- Unique subscription identifier
+    # @rbs notes: String -- Additional details associated with the subscription
+    # : (String, ?notes: String?, ?status: String?) -> HTTP::Response
+    def update_dsp_stream_subscription: (String, ?notes: String?, ?status: String?) -> HTTP::Response
+
+    # Update an existing subscription Note: trailing slash in request uri is not allowed
+    # @rbs subscription_id: String -- Unique subscription identifier
+    # @rbs notes: String -- Additional details associated with the subscription
+    # : (String, ?notes: String?, ?status: String?) -> HTTP::Response
+    def update_stream_subscription: (String, ?notes: String?, ?status: String?) -> HTTP::Response
+  end
+end

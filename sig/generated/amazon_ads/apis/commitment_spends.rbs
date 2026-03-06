@@ -1,0 +1,9 @@
+# Generated from lib/amazon_ads/apis/commitment_spends.rb with RBS::Inline
+
+module AmazonAds
+  class CommitmentSpends < API
+    # Retrieve commitment spend
+    # : (?commitment_ids: Array[untyped]?) -> HTTP::Response
+    def dsp_retrieve_commitment_spend: (?commitment_ids: Array[untyped]?) -> HTTP::Response
+  end
+end

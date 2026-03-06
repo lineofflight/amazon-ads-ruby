@@ -1,0 +1,9 @@
+# Generated from lib/amazon_ads/apis/brand_store_pages.rb with RBS::Inline
+
+module AmazonAds
+  class BrandStorePages < API
+    # Retrieve brand store page content
+    # : (edition_id_filter: String, page_id_filter: String, store_id_filter: String, ?max_results: Integer?, ?next_token: String?, ?store_edition_publish_id_filter: String?) -> HTTP::Response
+    def query_brand_store_page: (edition_id_filter: String, page_id_filter: String, store_id_filter: String, ?max_results: Integer?, ?next_token: String?, ?store_edition_publish_id_filter: String?) -> HTTP::Response
+  end
+end

@@ -1,0 +1,21 @@
+# Generated from lib/amazon_ads/apis/ads.rb with RBS::Inline
+
+module AmazonAds
+  class Ads < API
+    # Create ads
+    # : (?ads: Array[untyped]?) -> HTTP::Response
+    def create_ad: (?ads: Array[untyped]?) -> HTTP::Response
+
+    # Delete ads
+    # : (?ad_ids: Array[untyped]?) -> HTTP::Response
+    def delete_ad: (?ad_ids: Array[untyped]?) -> HTTP::Response
+
+    # List ads
+    # : (ad_product_filter: String, ?ad_group_id_filter: String?, ?ad_id_filter: String?, ?campaign_id_filter: String?, ?marketplace_scope_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?, ?state_filter: String?) -> HTTP::Response
+    def query_ad: (ad_product_filter: String, ?ad_group_id_filter: String?, ?ad_id_filter: String?, ?campaign_id_filter: String?, ?marketplace_scope_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?, ?state_filter: String?) -> HTTP::Response
+
+    # Update ads
+    # : (?ads: Array[untyped]?) -> HTTP::Response
+    def update_ad: (?ads: Array[untyped]?) -> HTTP::Response
+  end
+end

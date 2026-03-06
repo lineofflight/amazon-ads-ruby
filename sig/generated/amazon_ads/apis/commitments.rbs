@@ -1,0 +1,21 @@
+# Generated from lib/amazon_ads/apis/commitments.rb with RBS::Inline
+
+module AmazonAds
+  class Commitments < API
+    # Create commitments
+    # : (?commitments: Array[untyped]?) -> HTTP::Response
+    def dsp_create_commitment: (?commitments: Array[untyped]?) -> HTTP::Response
+
+    # List commitments
+    # : (?next_token: String?, ?max_results: Integer?) -> HTTP::Response
+    def dsp_list_commitment: (?next_token: String?, ?max_results: Integer?) -> HTTP::Response
+
+    # Get Commitments
+    # : (?commitment_ids: Array[untyped]?) -> HTTP::Response
+    def dsp_retrieve_commitment: (?commitment_ids: Array[untyped]?) -> HTTP::Response
+
+    # Update commitments
+    # : (?commitments: Array[untyped]?) -> HTTP::Response
+    def dsp_update_commitment: (?commitments: Array[untyped]?) -> HTTP::Response
+  end
+end

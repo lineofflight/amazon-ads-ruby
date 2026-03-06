@@ -1,0 +1,21 @@
+# Generated from lib/amazon_ads/apis/campaigns.rb with RBS::Inline
+
+module AmazonAds
+  class Campaigns < API
+    # Create campaigns
+    # : (?campaigns: Array[untyped]?) -> HTTP::Response
+    def create_campaign: (?campaigns: Array[untyped]?) -> HTTP::Response
+
+    # Delete campaigns
+    # : (?campaign_ids: Array[untyped]?) -> HTTP::Response
+    def delete_campaign: (?campaign_ids: Array[untyped]?) -> HTTP::Response
+
+    # Query campaign
+    # : (ad_product_filter: String, ?campaign_id_filter: String?, ?goal_filter: String?, ?marketplace_scope_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?, ?portfolio_id_filter: String?, ?state_filter: String?) -> HTTP::Response
+    def query_campaign: (ad_product_filter: String, ?campaign_id_filter: String?, ?goal_filter: String?, ?marketplace_scope_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?, ?portfolio_id_filter: String?, ?state_filter: String?) -> HTTP::Response
+
+    # Update campaign
+    # : (?campaigns: Array[untyped]?) -> HTTP::Response
+    def update_campaign: (?campaigns: Array[untyped]?) -> HTTP::Response
+  end
+end

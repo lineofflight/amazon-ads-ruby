@@ -1,0 +1,13 @@
+# Generated from lib/amazon_ads/apis/brand_store_edition_publish_versions.rb with RBS::Inline
+
+module AmazonAds
+  class BrandStoreEditionPublishVersions < API
+    # Query store edition publish versions
+    # : (edition_id_filter: String, publish_status_filter: String, store_id_filter: String, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
+    def query_brand_store_edition_publish_version: (edition_id_filter: String, publish_status_filter: String, store_id_filter: String, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
+
+    # Update store edition publish versions
+    # : (?brand_store_edition_publish_versions: Array[untyped]?) -> HTTP::Response
+    def update_brand_store_edition_publish_version: (?brand_store_edition_publish_versions: Array[untyped]?) -> HTTP::Response
+  end
+end

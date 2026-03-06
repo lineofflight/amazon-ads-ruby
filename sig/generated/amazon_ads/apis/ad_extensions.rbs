@@ -1,0 +1,17 @@
+# Generated from lib/amazon_ads/apis/ad_extensions.rb with RBS::Inline
+
+module AmazonAds
+  class AdExtensions < API
+    # Create ad extensions - API is in open beta
+    # : (?ad_extensions: Array[untyped]?) -> HTTP::Response
+    def create_ad_extension: (?ad_extensions: Array[untyped]?) -> HTTP::Response
+
+    # Query ad_extension - API is in open beta
+    # : (?ad_extension_id_filter: String?, ?ad_extension_status_filter: String?, ?ad_extension_type_filter: String?, ?ad_group_id_filter: String?, ?ad_id_filter: String?, ?ad_product_filter: String?, ?max_results: Integer?, ?next_token: String?, ?state_filter: String?) -> HTTP::Response
+    def query_ad_extension: (?ad_extension_id_filter: String?, ?ad_extension_status_filter: String?, ?ad_extension_type_filter: String?, ?ad_group_id_filter: String?, ?ad_id_filter: String?, ?ad_product_filter: String?, ?max_results: Integer?, ?next_token: String?, ?state_filter: String?) -> HTTP::Response
+
+    # Update ad_extension - API is in open beta
+    # : (?ad_extensions: Array[untyped]?) -> HTTP::Response
+    def update_ad_extension: (?ad_extensions: Array[untyped]?) -> HTTP::Response
+  end
+end

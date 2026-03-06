@@ -1,0 +1,23 @@
+# Generated from lib/amazon_ads/apis/reporting.rb with RBS::Inline
+
+module AmazonAds
+  # Offline Report
+  class Reporting < API
+    # Creates a report request
+    # @rbs end_date: String -- YYYY-MM-DD format. The maximum lookback window supported depends on the selection of reportTypeId. Most report types support `95 days` as lookback window.
+    # @rbs name: String -- The name of the report.
+    # @rbs start_date: String -- YYYY-MM-DD format. The maximum lookback window supported depends on the selection of reportTypeId. Most report types support `95 days` as lookback window.
+    # : (configuration: untyped, end_date: String, start_date: String, ?name: String?) -> HTTP::Response
+    def create_async_report: (configuration: untyped, end_date: String, start_date: String, ?name: String?) -> HTTP::Response
+
+    # Deletes a report by id
+    # @rbs report_id: String -- The identifier of the requested report.
+    # : (String) -> HTTP::Response
+    def delete_async_report: (String) -> HTTP::Response
+
+    # Gets a generation status of report by id
+    # @rbs report_id: String -- The identifier of the requested report.
+    # : (String) -> HTTP::Response
+    def get_async_report: (String) -> HTTP::Response
+  end
+end

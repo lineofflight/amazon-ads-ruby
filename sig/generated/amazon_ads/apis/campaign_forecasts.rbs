@@ -1,0 +1,9 @@
+# Generated from lib/amazon_ads/apis/campaign_forecasts.rb with RBS::Inline
+
+module AmazonAds
+  class CampaignForecasts < API
+    # Retrieve campaign forecast
+    # : (?campaign_forecast_descriptions: Array[untyped]?) -> HTTP::Response
+    def dsp_retrieve_campaign_forecast: (?campaign_forecast_descriptions: Array[untyped]?) -> HTTP::Response
+  end
+end

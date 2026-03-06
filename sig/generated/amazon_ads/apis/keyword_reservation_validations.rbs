@@ -1,0 +1,9 @@
+# Generated from lib/amazon_ads/apis/keyword_reservation_validations.rb with RBS::Inline
+
+module AmazonAds
+  class KeywordReservationValidations < API
+    # Validate keyword reservation
+    # : (?keyword_reservation_validations: Array[untyped]?) -> HTTP::Response
+    def sb_create_keyword_reservation_validation: (?keyword_reservation_validations: Array[untyped]?) -> HTTP::Response
+  end
+end

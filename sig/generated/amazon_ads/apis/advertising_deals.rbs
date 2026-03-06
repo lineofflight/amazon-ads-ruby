@@ -1,0 +1,21 @@
+# Generated from lib/amazon_ads/apis/advertising_deals.rb with RBS::Inline
+
+module AmazonAds
+  class AdvertisingDeals < API
+    # Create advertisingDeal
+    # : (?advertising_deals: Array[untyped]?) -> HTTP::Response
+    def sb_create_advertising_deal: (?advertising_deals: Array[untyped]?) -> HTTP::Response
+
+    # Delete advertisingDeal
+    # : (?advertising_deal_ids: Array[untyped]?) -> HTTP::Response
+    def sb_delete_advertising_deal: (?advertising_deal_ids: Array[untyped]?) -> HTTP::Response
+
+    # Query advertisingDeal
+    # : (?advertising_deal_id_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?) -> HTTP::Response
+    def sb_query_advertising_deal: (?advertising_deal_id_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?) -> HTTP::Response
+
+    # Update advertisingDeal
+    # : (?advertising_deals: Array[untyped]?) -> HTTP::Response
+    def sb_update_advertising_deal: (?advertising_deals: Array[untyped]?) -> HTTP::Response
+  end
+end

@@ -2,19 +2,21 @@
 
 module AmazonAds
   # Amazon Ads API - Profiles
-  #
-  # @see https://advertising.amazon.com/API/docs/en-us/reference/profiles
   class Profiles < API
+    # Gets a profile specified by identifier.
+    # : (Integer) -> HTTP::Response
+    def get_profile_by_id: (Integer) -> HTTP::Response
+
     # Gets a list of profiles.
-    # : (?api_program: String?, ?access_level: String?, ?profile_type_filter: String?, ?valid_payment_method_filter: String?) -> untyped
-    def list_profiles: (?api_program: String?, ?access_level: String?, ?profile_type_filter: String?, ?valid_payment_method_filter: String?) -> untyped
+    # @rbs api_program: String -- Filters response to include profiles that have permissions for the specified Advertising API program only. Setting `apiProgram=billing` filters the response to include only profiles to which the user and application associated with the access token have permission to view or edit billing information.
+    # @rbs access_level: String -- Filters response to include profiles that have specified permissions for the specified Advertising API program only. Currently, the only supported access level is `view` and `edit`. Setting `accessLevel=view` filters the response to include only profiles to which the user and application associated with the access token have view permission to the provided api program.
+    # @rbs profile_type_filter: String -- Filters response to include profiles that are of the specified types in the comma-delimited list. Default is all types. Note that this filter performs an inclusive AND operation on the types.
+    # @rbs valid_payment_method_filter: String -- Filter response to include profiles that have valid payment methods. Default is to include all profiles. Setting this filter to `true` returns only profiles with either no `validPaymentMethod` field, or the `validPaymentMethod` field set to `true`. Setting this to `false` returns profiles with the `validPaymentMethod` field set to `false` only.
+    # : (?api_program: String?, ?access_level: String?, ?profile_type_filter: String?, ?valid_payment_method_filter: String?) -> HTTP::Response
+    def list_profiles: (?api_program: String?, ?access_level: String?, ?profile_type_filter: String?, ?valid_payment_method_filter: String?) -> HTTP::Response
 
     # Update the daily budget for one or more profiles.
-    # : (?body: Hash[String, untyped]) -> untyped
-    def update_profiles: (?body: Hash[String, untyped]) -> untyped
-
-    # Gets a profile specified by identifier.
-    # : (Integer) -> untyped
-    def get_profile_by_id: (Integer) -> untyped
+    # : (?json: untyped) -> HTTP::Response
+    def update_profiles: (?json: untyped) -> HTTP::Response
   end
 end

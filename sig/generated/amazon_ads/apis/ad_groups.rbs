@@ -1,0 +1,21 @@
+# Generated from lib/amazon_ads/apis/ad_groups.rb with RBS::Inline
+
+module AmazonAds
+  class AdGroups < API
+    # Create ad groups
+    # : (?ad_groups: Array[untyped]?) -> HTTP::Response
+    def create_ad_group: (?ad_groups: Array[untyped]?) -> HTTP::Response
+
+    # Delete ad groups
+    # : (?ad_group_ids: Array[untyped]?) -> HTTP::Response
+    def delete_ad_group: (?ad_group_ids: Array[untyped]?) -> HTTP::Response
+
+    # List ad groups
+    # : (ad_product_filter: String, ?ad_group_id_filter: String?, ?campaign_id_filter: String?, ?marketplace_scope_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?, ?state_filter: String?) -> HTTP::Response
+    def query_ad_group: (ad_product_filter: String, ?ad_group_id_filter: String?, ?campaign_id_filter: String?, ?marketplace_scope_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?, ?state_filter: String?) -> HTTP::Response
+
+    # Update ad groups
+    # : (?ad_groups: Array[untyped]?) -> HTTP::Response
+    def update_ad_group: (?ad_groups: Array[untyped]?) -> HTTP::Response
+  end
+end

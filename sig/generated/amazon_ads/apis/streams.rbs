@@ -1,0 +1,40 @@
+# Generated from lib/amazon_ads/apis/streams.rb with RBS::Inline
+
+module AmazonAds
+  # Amazon Marketing Stream subscription management
+  class Streams < API
+    CONTENT_TYPE: ::String
+
+    # Lists stream subscriptions
+    # : (?max_results: Integer?, ?starting_token: String?) -> HTTP::Response
+    def list_subscriptions: (?max_results: Integer?, ?starting_token: String?) -> HTTP::Response
+
+    # Creates a new stream subscription
+    # : (?json: untyped) -> HTTP::Response
+    def create_subscription: (?json: untyped) -> HTTP::Response
+
+    # Fetches a specific subscription by ID
+    # : (String) -> HTTP::Response
+    def get_subscription: (String) -> HTTP::Response
+
+    # Updates an existing subscription
+    # : (String, ?json: untyped) -> HTTP::Response
+    def update_subscription: (String, ?json: untyped) -> HTTP::Response
+
+    # Lists DSP stream subscriptions
+    # : (?max_results: Integer?, ?starting_token: String?) -> HTTP::Response
+    def dsp_list_subscriptions: (?max_results: Integer?, ?starting_token: String?) -> HTTP::Response
+
+    # Creates a new DSP stream subscription
+    # : (?json: untyped) -> HTTP::Response
+    def dsp_create_subscription: (?json: untyped) -> HTTP::Response
+
+    # Fetches a specific DSP subscription by ID
+    # : (String) -> HTTP::Response
+    def dsp_get_subscription: (String) -> HTTP::Response
+
+    # Updates an existing DSP subscription
+    # : (String, ?json: untyped) -> HTTP::Response
+    def dsp_update_subscription: (String, ?json: untyped) -> HTTP::Response
+  end
+end

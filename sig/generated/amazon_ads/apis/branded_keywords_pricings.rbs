@@ -1,0 +1,9 @@
+# Generated from lib/amazon_ads/apis/branded_keywords_pricings.rb with RBS::Inline
+
+module AmazonAds
+  class BrandedKeywordsPricings < API
+    # Create brandedKeywords pricing
+    # : (?branded_keywords_pricings: Array[untyped]?) -> HTTP::Response
+    def sb_create_branded_keywords_pricing: (?branded_keywords_pricings: Array[untyped]?) -> HTTP::Response
+  end
+end
