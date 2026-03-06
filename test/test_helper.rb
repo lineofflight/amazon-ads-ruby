@@ -2,14 +2,12 @@
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
-require "dotenv/load"
+require "dotenv"
 
-ENV["AMAZON_ADS_CLIENT_ID"] ||= "dummy"
-ENV["AMAZON_ADS_CLIENT_SECRET"] ||= "dummy"
-
-require "amazon_ads"
+Dotenv.load("#{__dir__}/.env", "#{__dir__}/.env.example")
 
 require "minitest/autorun"
+require "amazon_ads"
 
 require_relative "support/recordable"
 require_relative "support/feature_helpers"
