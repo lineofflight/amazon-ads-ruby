@@ -1,0 +1,115 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.amazon.com/auth/o2/token
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        Z3JhbnRfdHlwZT1yZWZyZXNoX3Rva2VuJmNsaWVudF9pZD1GSUxURVJFRCZj
+        bGllbnRfc2VjcmV0PUZJTFRFUkVEJnJlZnJlc2hfdG9rZW49RklMVEVSRUQ=
+    headers:
+      Connection:
+      - close
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.amazon.com
+      User-Agent:
+      - http.rb/5.3.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Server
+      Date:
+      - Fri, 27 Feb 2026 08:45:22 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1160'
+      Connection:
+      - close
+      X-Amz-Rid:
+      - JXZED33FXBX4BVW5BZG3
+      X-Amzn-Requestid:
+      - f4ea052c-b310-4f84-b33f-934b2ae8ce3f
+      X-Amz-Date:
+      - Fri, 27 Feb 2026 08:45:22 GMT
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Vary:
+      - Content-Type,Accept-Encoding,User-Agent
+      Strict-Transport-Security:
+      - max-age=47474747; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
+  recorded_at: Fri, 27 Feb 2026 08:45:22 GMT
+- request:
+    method: post
+    uri: https://advertising-api.amazon.com/adsApi/v1/query/campaigns
+    body:
+      encoding: UTF-8
+      string: '{"adProductFilter":{"include":["SPONSORED_PRODUCTS"]}}'
+    headers:
+      Authorization:
+      - FILTERED
+      Amazon-Advertising-Api-Clientid:
+      - FILTERED
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Amazon-Advertising-Api-Scope:
+      - FILTERED
+      Connection:
+      - close
+      Host:
+      - advertising-api.amazon.com
+      User-Agent:
+      - http.rb/5.3.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Server
+      Date:
+      - Fri, 27 Feb 2026 08:45:23 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '16'
+      Connection:
+      - close
+      X-Amz-Rid:
+      - GFCFKGWP0Q3N6TM2BDP2
+      X-Amzn-Requestid:
+      - eedff949-1a88-473e-86f8-2d2e64bf7f6c
+      X-Amzn-Remapped-X-Amzn-Requestid:
+      - eedff949-1a88-473e-86f8-2d2e64bf7f6c
+      X-Amzn-Remapped-Content-Length:
+      - '16'
+      X-Amz-Apigw-Id:
+      - ZbrxhFsXoAMF1MQ=
+      X-Amzn-Remapped-Server:
+      - Apache-Coyote/1.1
+      X-Amzn-Trace-Id:
+      - Root=1-69a159a3-fd98815e5bdf185ba2d82839
+      X-Amzn-Remapped-Date:
+      - Fri, 27 Feb 2026 08:45:23 GMT
+      Vary:
+      - Content-Type,Accept-Encoding,User-Agent
+      Strict-Transport-Security:
+      - max-age=47474747; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"campaigns":[]}'
+  recorded_at: Fri, 27 Feb 2026 08:45:23 GMT
+recorded_with: VCR 6.4.0
