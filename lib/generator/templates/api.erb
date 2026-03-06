@@ -1,17 +1,21 @@
 # frozen_string_literal: true
-
 # rbs_inline: enabled
 
 module AmazonAds
-  # <%= spec.dig("info", "title") %>
-  #
-  # @see <%= spec.dig("info", "contact", "url") %>
+<% if @tag.nil? && (title = spec.dig("info", "title")) -%>
+  # <%= title %>
+<% end -%>
   class <%= class_name %> < API
 <% operations.each_with_index do |op, idx| -%>
-    # <%= op[:summary] %>
-    #: (<%= op[:signature] %>) -> untyped
-    def <%= op[:method_name] %>(<%= op[:params] %>)
-      <%= op[:http_method] %>("<%= op[:path] %>"<%= op[:args] %>)
+<% if op[:summary] || op[:description] -%>
+    # <%= op[:summary] || op[:description] %>
+<% end -%>
+<% op[:param_docs].each do |doc| -%>
+    <%= doc %>
+<% end -%>
+    #: (<%= op[:signature] %>) -> HTTP::Response
+    def <%= op[:method_name] %><%= op[:params].empty? ? "" : "(#{op[:params]})" %>
+      request(:<%= op[:http_method] %>, "<%= op[:path] %>"<%= op[:args] %>)
     end
 <%= idx < operations.size - 1 ? "\n" : "" -%>
 <% end -%>

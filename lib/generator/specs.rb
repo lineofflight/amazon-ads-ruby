@@ -2,14 +2,17 @@
 
 require "http"
 require "yaml"
+require "json"
 require "fileutils"
 
 module Generator
   # Downloads and caches OpenAPI specs from Amazon Ads
   module Specs
     SPECS = {
+      amazon_ads: "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/AmazonAdsAPIALLMerged_prod_3p.json",
       profiles: "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml",
-      sponsored_products: "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/sponsored-products/2-0/openapi.yaml",
+      reporting: "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json",
+      marketing_stream: "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonMarketingStream_prod_3p.json",
     }.freeze
 
     SPECS_DIR = File.expand_path("../../specs", __dir__)
@@ -24,6 +27,7 @@ module Generator
       end
 
       def download(name, url)
+        ext = File.extname(URI.parse(url).path)
         puts "Downloading #{name}..."
         response = HTTP.get(url)
 
@@ -32,14 +36,22 @@ module Generator
           return
         end
 
-        path = File.join(SPECS_DIR, "#{name}.yaml")
+        path = File.join(SPECS_DIR, "#{name}#{ext}")
         File.write(path, response.body.to_s)
         puts "Saved #{path}"
       end
 
       def load(name)
-        path = File.join(SPECS_DIR, "#{name}.yaml")
-        YAML.load_file(path)
+        yaml_path = File.join(SPECS_DIR, "#{name}.yaml")
+        json_path = File.join(SPECS_DIR, "#{name}.json")
+
+        if File.exist?(yaml_path)
+          YAML.load_file(yaml_path)
+        elsif File.exist?(json_path)
+          JSON.parse(File.read(json_path))
+        else
+          raise "Spec not found: #{name}"
+        end
       end
     end
   end
