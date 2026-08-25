@@ -1,5 +1,12 @@
 ## [Unreleased]
 
+## [0.4.0] - 2026-08-26
+
+- Raise AmazonAds::Error on 4xx/5xx responses instead of HTTP::StatusError
+- Preserve error response bodies (previously lost when the connection closed)
+- Raise AmazonAds::Error when retries exhaust on 429, instead of HTTP::OutOfRetriesError
+- Re-raise underlying transport errors when retries exhaust on network failures
+
 ## [0.3.0] - 2026-08-25
 
 - Require http ~> 6.0
@@ -24,7 +31,8 @@
 - OpenAPI-based code generator
 - RBS type signatures
 
-[Unreleased]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/lineofflight/amazon-ads-ruby/releases/tag/v0.1.0
