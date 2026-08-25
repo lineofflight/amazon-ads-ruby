@@ -4,5 +4,6 @@
 /tmp/
 /.gem_rbs_collection/
 Gemfile.lock
+rbs_collection.lock.yaml
 *.gem
 .env
