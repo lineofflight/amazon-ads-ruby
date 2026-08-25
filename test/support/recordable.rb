@@ -6,6 +6,7 @@ require "webmock/minitest"
 VCR.configure do |c|
   c.hook_into(:webmock)
   c.cassette_library_dir = "test/vcr_cassettes"
+  c.ignore_localhost = true
 
   # Filter credentials from LWA request bodies
   ["client_id", "client_secret", "refresh_token"].each do |param|

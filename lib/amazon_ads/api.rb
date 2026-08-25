@@ -49,13 +49,9 @@ module AmazonAds
         .headers(default_headers)
         .use(:auto_inflate)
 
-      if retries.zero?
-        client.use(:raise_error)
-      else
-        client
-          .use(raise_error: { ignore: [429] })
-          .retriable(tries: retries + 1, retry_statuses: [429])
-      end
+      return client if retries.zero?
+
+      client.retriable(tries: retries + 1, retry_statuses: [429])
     end
 
     private
@@ -64,7 +60,15 @@ module AmazonAds
     def request(method, path, **options)
       url = endpoint
       url.path = path
-      http.request(method, url.to_s, **options)
+      response = http.request(method, url.to_s, **options)
+      raise Error.build(response) if response.code >= 400
+
+      response
+    rescue HTTP::OutOfRetriesError => e
+      response = e.response
+      raise e unless response
+
+      raise Error.build(response)
     end
 
     #: () -> Hash[String, String]
