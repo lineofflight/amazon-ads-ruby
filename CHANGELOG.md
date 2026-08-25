@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+## [0.3.0] - 2026-08-25
+
+- Require http ~> 6.0
+- Migrate type signatures to Steep 2.0 inline RBS
+
 ## [0.2.0] - 2026-03-06
 
 - Rewrite core: stateless API classes take access_token directly
@@ -19,6 +24,7 @@
 - OpenAPI-based code generator
 - RBS type signatures
 
-[Unreleased]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/lineofflight/amazon-ads-ruby/releases/tag/v0.1.0
