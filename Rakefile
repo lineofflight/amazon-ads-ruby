@@ -9,13 +9,8 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
-desc "Generate RBS files from inline annotations"
-task :rbs do
-  sh "rbs-inline --output sig lib"
-end
-
 desc "Run type checking with Steep"
-task steep: :rbs do
+task :steep do
   sh "steep check"
 end
 

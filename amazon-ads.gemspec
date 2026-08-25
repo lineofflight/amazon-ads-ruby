@@ -18,8 +18,8 @@ Gem::Specification.new do |spec|
   spec.metadata["changelog_uri"] = "#{spec.homepage}/blob/main/CHANGELOG.md"
   spec.metadata["rubygems_mfa_required"] = "true"
 
-  spec.files = Dir["lib/amazon_ads/**/*.rb", "sig/generated/amazon_ads/**/*.rbs"]
-    .append("lib/amazon_ads.rb", "sig/generated/amazon_ads.rbs", "LICENSE.txt", "README.md")
+  spec.files = Dir["lib/amazon_ads/**/*.rb"]
+    .append("lib/amazon_ads.rb", "LICENSE.txt", "README.md")
   spec.require_paths = ["lib"]
 
   spec.add_dependency("cgi")

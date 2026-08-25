@@ -5,10 +5,9 @@
 - Lint: `bundle exec rake rubocop`
 - Type check: `bundle exec rake steep`
 - All checks: `bundle exec rake`
-- Generate rbs: `bundle exec rake rbs`
 
 ## Style
-- Inline RBS
+- Inline RBS; attribute types go trailing (`attr_reader :name #: String`), method types leading (`#: () -> String`)
 - git: 50/72
 - No emojis, em dashes
 

@@ -11,6 +11,7 @@ module Generator
 
     attr_reader :spec_name, :spec, :class_name, :file_name
 
+    #: (String, ?tag: String?, ?spec: untyped) -> void
     def initialize(spec_name, tag: nil, spec: nil)
       @spec_name = spec_name
       @spec = spec || Generator::Specs.load(spec_name)
@@ -32,30 +33,28 @@ module Generator
       puts("Generated #{path}")
     end
 
-    class << self
-      # Generate all classes for a multi-tag spec (v1 RPC-style)
-      def generate_by_tags(spec_name)
-        spec = Generator::Specs.load(spec_name)
-        tags = extract_tags(spec)
-        tags.each_key do |tag|
-          api = new(spec_name, tag: tag, spec: spec)
-          api.save
+    # Generate all classes for a multi-tag spec (v1 RPC-style)
+    def self.generate_by_tags(spec_name)
+      spec = Generator::Specs.load(spec_name)
+      tags = extract_tags(spec)
+      tags.each_key do |tag|
+        api = new(spec_name, tag: tag, spec: spec)
+        api.save
+      end
+    end
+
+    # Returns tag names from a spec
+    def self.extract_tags(spec)
+      tags = {}
+      spec["paths"].each do |_path, methods|
+        methods.each do |_http_method, details|
+          next unless details.is_a?(Hash) && details["operationId"]
+
+          tag = (details["tags"] || ["Untagged"]).first
+          tags[tag] = true
         end
       end
-
-      # Returns tag names from a spec
-      def extract_tags(spec)
-        tags = {}
-        spec["paths"].each do |_path, methods|
-          methods.each do |_http_method, details|
-            next unless details.is_a?(Hash) && details["operationId"]
-
-            tag = (details["tags"] || ["Untagged"]).first
-            tags[tag] = true
-          end
-        end
-        tags
-      end
+      tags
     end
 
     private

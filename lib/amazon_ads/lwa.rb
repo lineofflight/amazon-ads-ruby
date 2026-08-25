@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-# rbs_inline: enabled
 
 require "http"
 
@@ -13,11 +12,9 @@ module AmazonAds
     # The OAuth refresh token
     attr_reader :refresh_token #: String
 
-    class << self
-      #: (**untyped) -> Hash[String, untyped]
-      def request(...)
-        new(...).request
-      end
+    #: (**untyped) -> Hash[String, untyped]
+    def self.request(...)
+      new(...).request
     end
 
     #: (refresh_token: String, ?http: untyped) -> void

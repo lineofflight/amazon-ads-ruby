@@ -17,41 +17,39 @@ module Generator
 
     SPECS_DIR = File.expand_path("../../specs", __dir__)
 
-    class << self
-      def download_all
-        FileUtils.mkdir_p(SPECS_DIR)
+    def self.download_all
+      FileUtils.mkdir_p(SPECS_DIR)
 
-        SPECS.each do |name, url|
-          download(name, url)
-        end
+      SPECS.each do |name, url|
+        download(name, url)
+      end
+    end
+
+    def self.download(name, url)
+      ext = File.extname(URI.parse(url).path)
+      puts "Downloading #{name}..."
+      response = HTTP.get(url)
+
+      unless response.status.success?
+        warn("Failed to download #{name}: #{response.status}")
+        return
       end
 
-      def download(name, url)
-        ext = File.extname(URI.parse(url).path)
-        puts "Downloading #{name}..."
-        response = HTTP.get(url)
+      path = File.join(SPECS_DIR, "#{name}#{ext}")
+      File.write(path, response.body.to_s)
+      puts "Saved #{path}"
+    end
 
-        unless response.status.success?
-          warn("Failed to download #{name}: #{response.status}")
-          return
-        end
+    def self.load(name)
+      yaml_path = File.join(SPECS_DIR, "#{name}.yaml")
+      json_path = File.join(SPECS_DIR, "#{name}.json")
 
-        path = File.join(SPECS_DIR, "#{name}#{ext}")
-        File.write(path, response.body.to_s)
-        puts "Saved #{path}"
-      end
-
-      def load(name)
-        yaml_path = File.join(SPECS_DIR, "#{name}.yaml")
-        json_path = File.join(SPECS_DIR, "#{name}.json")
-
-        if File.exist?(yaml_path)
-          YAML.load_file(yaml_path)
-        elsif File.exist?(json_path)
-          JSON.parse(File.read(json_path))
-        else
-          raise "Spec not found: #{name}"
-        end
+      if File.exist?(yaml_path)
+        YAML.load_file(yaml_path)
+      elsif File.exist?(json_path)
+        JSON.parse(File.read(json_path))
+      else
+        raise "Spec not found: #{name}"
       end
     end
   end

@@ -3,9 +3,7 @@
 D = Steep::Diagnostic
 
 target :lib do
-  signature "sig"
-
-  check "lib"
+  check "lib", inline: true
 
   collection_config "rbs_collection.yaml"
 

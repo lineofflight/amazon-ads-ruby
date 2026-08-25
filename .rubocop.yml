@@ -11,3 +11,7 @@ AllCops:
 Naming/AccessorMethodName:
   Exclude:
     - "lib/amazon_ads/apis/**/*.rb"
+
+# Steep's inline RBS mode misattributes methods defined in class << self
+Style/ClassMethodsDefinitions:
+  EnforcedStyle: def_self
