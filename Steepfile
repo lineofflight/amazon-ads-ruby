@@ -9,6 +9,8 @@ target :lib do
 
   collection_config "rbs_collection.yaml"
 
+  library("erb")
+  library("json")
   library("uri")
   library("yaml")
 
