@@ -2,6 +2,8 @@
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
+require_relative "support/silence_warnings"
+
 require "dotenv"
 
 Dotenv.load("#{__dir__}/.env", "#{__dir__}/.env.example")
