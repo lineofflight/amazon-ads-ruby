@@ -1,0 +1,179 @@
+---
+http_interactions:
+  - request:
+      method: post
+      uri: https://api.amazon.com/auth/o2/token
+      body:
+        encoding: ASCII-8BIT
+        base64_string: |
+          Z3JhbnRfdHlwZT1yZWZyZXNoX3Rva2VuJmNsaWVudF9pZD1GSUxURVJFRCZj
+          bGllbnRfc2VjcmV0PUZJTFRFUkVEJnJlZnJlc2hfdG9rZW49RklMVEVSRUQ=
+      headers:
+        Connection:
+          - close
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Host:
+          - api.amazon.com
+        User-Agent:
+          - http.rb/6.0.4
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Server:
+          - Server
+        Date:
+          - Tue, 25 Aug 2026 18:00:57 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Content-Length:
+          - "1162"
+        Connection:
+          - close
+        X-Amz-Rid:
+          - XSWTKJRGESBH3E9TKR7K
+        X-Amzn-Requestid:
+          - b60976a7-263c-4f0e-b289-7cf30a3cd5d5
+        X-Amz-Date:
+          - Tue, 25 Aug 2026 18:00:57 GMT
+        Cache-Control:
+          - no-cache, no-store, must-revalidate
+        Pragma:
+          - no-cache
+        Vary:
+          - Accept-Encoding,User-Agent
+        Strict-Transport-Security:
+          - max-age=47474747; includeSubDomains; preload
+      body:
+        encoding: UTF-8
+        string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
+    recorded_at: Tue, 25 Aug 2026 18:00:57 GMT
+  - request:
+      method: post
+      uri: https://api.amazon.com/auth/o2/token
+      body:
+        encoding: ASCII-8BIT
+        base64_string: |
+          Z3JhbnRfdHlwZT1yZWZyZXNoX3Rva2VuJmNsaWVudF9pZD1GSUxURVJFRCZj
+          bGllbnRfc2VjcmV0PUZJTFRFUkVEJnJlZnJlc2hfdG9rZW49RklMVEVSRUQ=
+      headers:
+        Connection:
+          - close
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Host:
+          - api.amazon.com
+        User-Agent:
+          - http.rb/6.0.4
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Server:
+          - Server
+        Date:
+          - Tue, 25 Aug 2026 18:00:58 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Content-Length:
+          - "1158"
+        Connection:
+          - close
+        X-Amz-Rid:
+          - RTFBSR5CA67G802HG7F1
+        X-Amzn-Requestid:
+          - 9fe53e98-b9f7-48c7-86c6-57c964e35ac5
+        X-Amz-Date:
+          - Tue, 25 Aug 2026 18:00:58 GMT
+        Cache-Control:
+          - no-cache, no-store, must-revalidate
+        Pragma:
+          - no-cache
+        Vary:
+          - Accept-Encoding,User-Agent
+        Strict-Transport-Security:
+          - max-age=47474747; includeSubDomains; preload
+      body:
+        encoding: UTF-8
+        string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
+    recorded_at: Tue, 25 Aug 2026 18:00:58 GMT
+  - request:
+      method: post
+      uri: https://advertising-api-eu.amazon.com/adsApi/v1/query/campaigns
+      body:
+        encoding: UTF-8
+        string: '{"adProductFilter":"SPONSORED_PRODUCTS"}'
+      headers:
+        Authorization:
+          - FILTERED
+        Amazon-Advertising-Api-Clientid:
+          - FILTERED
+        Content-Type:
+          - application/json
+        Accept:
+          - application/json
+        Amazon-Advertising-Api-Scope:
+          - FILTERED
+        Connection:
+          - close
+        Host:
+          - advertising-api-eu.amazon.com
+        User-Agent:
+          - http.rb/6.0.4
+    response:
+      status:
+        code: 400
+        message: Bad Request
+      headers:
+        Content-Type:
+          - application/json
+        Content-Length:
+          - "27"
+        Connection:
+          - close
+        Server:
+          - Server
+        Date:
+          - Tue, 25 Aug 2026 18:11:35 GMT
+        Edge-Cache-Control:
+          - no-store,no-cache,stale-if-error=0,stale-while-revalidate=0
+        X-Amz-Rid:
+          - TJ0709KC4QKZ3J71XVDX
+        X-Amzn-Requestid:
+          - 8ae0d531-21b1-4175-b627-1599bed96415
+        X-Amzn-Remapped-X-Amzn-Requestid:
+          - 8ae0d531-21b1-4175-b627-1599bed96415
+        X-Amzn-Remapped-Content-Length:
+          - "27"
+        X-Amzn-Errortype:
+          - SerializationException
+        X-Amzn-Remapped-Connection:
+          - close
+        X-Amz-Apigw-Id:
+          - Cq8hxEOXjoEFSUQ=
+        X-Amzn-Remapped-Server:
+          - Apache-Coyote/1.1
+        X-Amzn-Trace-Id:
+          - Root=1-6a8ddad7-7f06614ceba03878afc53d36
+        X-Amzn-Remapped-Date:
+          - Tue, 25 Aug 2026 18:11:35 GMT
+        Vary:
+          - Accept-Encoding,User-Agent
+        Strict-Transport-Security:
+          - max-age=47474747; includeSubDomains; preload
+        X-Cache:
+          - Error from cloudfront
+        Via:
+          - 1.1 acc5f68eb88a8e6d59815a0246ec23f0.cloudfront.net (CloudFront)
+        X-Amz-Cf-Pop:
+          - AMS1-P2
+        X-Amz-Cf-Id:
+          - tibpiHu-vo6CczDEgTRnuOfZDBt88ovGu5ua2Lxgc8B_IEwVzcyqgg==
+      body:
+        encoding: UTF-8
+        string: '{"Message":"Expected null"}'
+    recorded_at: Tue, 25 Aug 2026 18:11:35 GMT
+recorded_with: VCR 6.4.0
