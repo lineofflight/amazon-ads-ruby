@@ -6,8 +6,8 @@ require "fileutils"
 module Generator
   # Generates API classes from OpenAPI specs
   class API
-    TEMPLATE_PATH = File.expand_path("templates/api.erb", __dir__)
-    OUTPUT_DIR = File.expand_path("../../lib/amazon_ads/apis", __dir__)
+    TEMPLATE_PATH = File.expand_path("templates/api.erb", __dir__.to_s)
+    OUTPUT_DIR = File.expand_path("../../lib/amazon_ads/apis", __dir__.to_s)
 
     attr_reader :spec_name, :spec, :class_name, :file_name
 
@@ -45,7 +45,7 @@ module Generator
 
     # Returns tag names from a spec
     def self.extract_tags(spec)
-      tags = {}
+      tags = {} #: Hash[String, bool]
       spec["paths"].each do |_path, methods|
         methods.each do |_http_method, details|
           next unless details.is_a?(Hash) && details["operationId"]
@@ -64,7 +64,7 @@ module Generator
         methods.filter_map do |http_method, details|
           next unless ["get", "post", "put", "patch", "delete"].include?(http_method)
           next unless details["operationId"]
-          next if @tag && !details.fetch("tags", []).include?(@tag)
+          next if @tag && !Array(details["tags"]).include?(@tag)
 
           build_operation(path, http_method, details)
         end
@@ -78,7 +78,7 @@ module Generator
       path_params = url_params.select { |p| p[:in] == "path" }
       query_params = url_params.select { |p| p[:in] == "query" }
       has_body = ["post", "put", "patch"].include?(http_method) && details["requestBody"]
-      body_params = has_body ? extract_body_params(details) : []
+      body_params = has_body ? extract_body_params(details) : [] #: Array[Hash[Symbol, untyped]]
       raw_body = has_body && body_params.empty?
       content_type = has_body ? extract_content_type(details) : nil
 
@@ -163,7 +163,7 @@ module Generator
     def build_params(all_params, raw_body: false)
       path, keyword = all_params.partition { |p| p[:in] == "path" }
       required, optional = keyword.partition { |p| p[:required] }
-      parts = []
+      parts = [] #: Array[String]
       path.each { |p| parts << p[:name] }
       required.each { |p| parts << "#{p[:name]}:" }
       optional.each { |p| parts << "#{p[:name]}: nil" }
@@ -174,7 +174,7 @@ module Generator
     def build_signature(all_params, raw_body: false)
       path, keyword = all_params.partition { |p| p[:in] == "path" }
       required, optional = keyword.partition { |p| p[:required] }
-      parts = []
+      parts = [] #: Array[String]
       path.each { |p| parts << ruby_type(p[:type]) }
       required.each { |p| parts << "#{p[:name]}: #{ruby_type(p[:type])}" }
       optional.each { |p| parts << "?#{p[:name]}: #{ruby_type(p[:type])}?" }
@@ -183,7 +183,7 @@ module Generator
     end
 
     def build_args(query_params, body_params, raw_body: false, content_type: nil)
-      args = []
+      args = [] #: Array[String]
       if query_params.any?
         params_hash = query_params.map { |p| "\"#{p[:original_name]}\" => #{p[:name]}" }.join(", ")
         args << "params: { #{params_hash} }.compact"

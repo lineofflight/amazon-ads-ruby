@@ -1,0 +1,10 @@
+# Minimal shim; zeitwerk ships no RBS
+module Zeitwerk
+  class Loader
+    def self.for_gem: (?warn_on_extra_files: bool) -> Loader
+    def inflector: () -> untyped
+    def collapse: (String) -> void
+    def ignore: (String) -> void
+    def setup: () -> void
+  end
+end

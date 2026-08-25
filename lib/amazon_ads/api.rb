@@ -60,11 +60,11 @@ module AmazonAds
 
     private
 
-    #: (Symbol, String, **untyped) -> HTTP::Response
+    #: (HTTP::verb, String, **untyped) -> HTTP::Response
     def request(method, path, **options)
       url = endpoint
       url.path = path
-      http.request(method, url, **options)
+      http.request(method, url.to_s, **options)
     end
 
     #: () -> Hash[String, String]
@@ -75,8 +75,12 @@ module AmazonAds
         "Content-Type" => "application/json",
         "Accept" => "application/json",
       }
-      headers["Amazon-Advertising-API-Scope"] = profile_id if profile_id
-      headers["Amazon-Ads-AccountId"] = account_id if account_id
+      if (scope = profile_id)
+        headers["Amazon-Advertising-API-Scope"] = scope
+      end
+      if (account = account_id)
+        headers["Amazon-Ads-AccountId"] = account
+      end
 
       headers
     end

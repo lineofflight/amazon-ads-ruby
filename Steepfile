@@ -5,9 +5,12 @@ D = Steep::Diagnostic
 target :lib do
   check "lib", inline: true
 
+  signature "sig"
+
   collection_config "rbs_collection.yaml"
 
   library("uri")
+  library("yaml")
 
-  configure_code_diagnostics(D::Ruby.lenient)
+  configure_code_diagnostics(D::Ruby.default)
 end

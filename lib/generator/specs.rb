@@ -15,7 +15,7 @@ module Generator
       marketing_stream: "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonMarketingStream_prod_3p.json",
     }.freeze
 
-    SPECS_DIR = File.expand_path("../../specs", __dir__)
+    SPECS_DIR = File.expand_path("../../specs", __dir__.to_s)
 
     def self.download_all
       FileUtils.mkdir_p(SPECS_DIR)
@@ -26,7 +26,7 @@ module Generator
     end
 
     def self.download(name, url)
-      ext = File.extname(URI.parse(url).path)
+      ext = File.extname(URI.parse(url).path.to_s)
       puts "Downloading #{name}..."
       response = HTTP.get(url)
 
@@ -40,6 +40,7 @@ module Generator
       puts "Saved #{path}"
     end
 
+    #: (Symbol | String) -> untyped
     def self.load(name)
       yaml_path = File.join(SPECS_DIR, "#{name}.yaml")
       json_path = File.join(SPECS_DIR, "#{name}.json")

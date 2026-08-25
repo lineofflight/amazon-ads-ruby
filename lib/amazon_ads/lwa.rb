@@ -12,7 +12,7 @@ module AmazonAds
     # The OAuth refresh token
     attr_reader :refresh_token #: String
 
-    #: (**untyped) -> Hash[String, untyped]
+    #: (refresh_token: String, ?http: untyped) -> Hash[String, untyped]
     def self.request(...)
       new(...).request
     end
