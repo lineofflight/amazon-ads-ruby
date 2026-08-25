@@ -50,10 +50,10 @@ module AmazonAds
         .use(:auto_inflate)
 
       if retries.zero?
-        client.use(:raise_error)
+        client.use(:flushed_raise_error)
       else
         client
-          .use(raise_error: { ignore: [429] })
+          .use(flushed_raise_error: { ignore: [429] })
           .retriable(tries: retries + 1, retry_statuses: [429])
       end
     end

@@ -6,7 +6,9 @@ loader = Zeitwerk::Loader.for_gem
 loader.inflector.inflect("api" => "API", "lwa" => "LWA")
 loader.collapse("#{__dir__}/amazon_ads/apis")
 loader.ignore("#{__dir__}/generator")
+loader.ignore("#{__dir__}/amazon_ads/flushed_raise_error.rb")
 loader.setup
+require_relative "amazon_ads/flushed_raise_error"
 
 # Amazon Ads API client for Ruby
 module AmazonAds

@@ -33,7 +33,7 @@ module AmazonAds
 
     #: () -> HTTP::Client
     def http
-      @http.use(:raise_error)
+      @http.use(:flushed_raise_error)
     end
 
     #: () -> Hash[Symbol, String]
