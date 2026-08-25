@@ -16,7 +16,7 @@ http_interactions:
       Host:
       - api.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
@@ -25,34 +25,34 @@ http_interactions:
       Server:
       - Server
       Date:
-      - Fri, 06 Mar 2026 00:07:27 GMT
+      - Tue, 25 Aug 2026 18:31:15 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1160'
+      - '1162'
       Connection:
       - close
       X-Amz-Rid:
-      - YS7KGE46JMB9Z1XHASJF
+      - C1XH63XB0TB7YHWCY085
       X-Amzn-Requestid:
-      - 5f293a8d-540c-4ba4-b6de-2dba31f8e5d7
+      - 192bc452-626b-4aba-bb2a-8c5f3eefe504
       X-Amz-Date:
-      - Fri, 06 Mar 2026 00:07:27 GMT
+      - Tue, 25 Aug 2026 18:31:15 GMT
       Cache-Control:
       - no-cache, no-store, must-revalidate
       Pragma:
       - no-cache
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
     body:
       encoding: UTF-8
       string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
-  recorded_at: Fri, 06 Mar 2026 00:07:27 GMT
+  recorded_at: Tue, 25 Aug 2026 18:31:15 GMT
 - request:
     method: get
-    uri: https://advertising-api.amazon.com/streams/subscriptions
+    uri: https://advertising-api-eu.amazon.com/streams/subscriptions
     body:
       encoding: ASCII-8BIT
       base64_string: ''
@@ -70,38 +70,48 @@ http_interactions:
       Connection:
       - close
       Host:
-      - advertising-api.amazon.com
+      - advertising-api-eu.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
-      - Server
-      Date:
-      - Fri, 06 Mar 2026 00:07:28 GMT
       Content-Type:
       - application/json
       Content-Length:
       - '20'
       Connection:
       - close
+      Server:
+      - Server
+      Date:
+      - Tue, 25 Aug 2026 18:31:15 GMT
+      Edge-Cache-Control:
+      - no-store,no-cache,stale-if-error=0,stale-while-revalidate=0
       X-Amz-Rid:
-      - X9YFT6HY7S3PC359TPMX
+      - NW2BXCRFWD4CXNSK4SX8
       X-Amzn-Requestid:
-      - 1abc70cc-a0b9-45a6-bc6f-94a0da262f79
+      - dd7ffd70-7858-4d0c-b50f-4fe5fcbad77f
       X-Amz-Apigw-Id:
-      - ZxkeKHtRoAMF8Jw=
+      - Cq_aGGyfjoEFx5A=
       X-Amzn-Trace-Id:
-      - Root=1-69aa1ac0-3db362e90695c3131567de0f
+      - Root=1-6a8ddf73-2f0b4be21b8a1ff6e50e3a09
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1b575b46b9e4dd6b829accb4ea728b00.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - AMS1-P2
+      X-Amz-Cf-Id:
+      - waJdVIIukrM4MyrMXuHd1-rtmkD1Tj_m78ymuLgJ3tV0OZEI3W1ucQ==
     body:
       encoding: UTF-8
       string: '{"subscriptions":[]}'
-  recorded_at: Fri, 06 Mar 2026 00:07:28 GMT
+  recorded_at: Tue, 25 Aug 2026 18:31:15 GMT
 recorded_with: VCR 6.4.0

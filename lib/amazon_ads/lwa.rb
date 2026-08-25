@@ -26,15 +26,13 @@ module AmazonAds
     # Requests a fresh access token from LWA
     #: () -> Hash[String, untyped]
     def request
-      http.post(URL, form: params).parse
+      response = @http.post(URL, form: params)
+      raise Error.build(response) if response.code >= 400
+
+      response.parse
     end
 
     private
-
-    #: () -> HTTP::Client
-    def http
-      @http.use(:raise_error)
-    end
 
     #: () -> Hash[Symbol, String]
     def params

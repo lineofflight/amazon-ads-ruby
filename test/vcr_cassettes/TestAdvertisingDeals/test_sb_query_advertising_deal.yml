@@ -16,7 +16,7 @@ http_interactions:
       Host:
       - api.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
@@ -25,34 +25,34 @@ http_interactions:
       Server:
       - Server
       Date:
-      - Thu, 05 Mar 2026 22:35:42 GMT
+      - Tue, 25 Aug 2026 18:31:08 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1163'
+      - '1160'
       Connection:
       - close
       X-Amz-Rid:
-      - HQEJC04E8Y7B2Z78CC2H
+      - C7ASAAK7WCTJVX8XQQJA
       X-Amzn-Requestid:
-      - ddf9cc68-bc4b-4220-88fb-43b433654e94
+      - e376966e-b8f9-465b-a4d3-2eb790b2a4b5
       X-Amz-Date:
-      - Thu, 05 Mar 2026 22:35:42 GMT
+      - Tue, 25 Aug 2026 18:31:08 GMT
       Cache-Control:
       - no-cache, no-store, must-revalidate
       Pragma:
       - no-cache
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
     body:
       encoding: UTF-8
       string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
-  recorded_at: Thu, 05 Mar 2026 22:35:42 GMT
+  recorded_at: Tue, 25 Aug 2026 18:31:08 GMT
 - request:
     method: post
-    uri: https://advertising-api.amazon.com/adsApi/v1/query/advertisingDeals/sb
+    uri: https://advertising-api-eu.amazon.com/adsApi/v1/query/advertisingDeals/sb
     body:
       encoding: UTF-8
       string: "{}"
@@ -70,44 +70,54 @@ http_interactions:
       Connection:
       - close
       Host:
-      - advertising-api.amazon.com
+      - advertising-api-eu.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
-      - Server
-      Date:
-      - Thu, 05 Mar 2026 22:35:42 GMT
       Content-Type:
       - application/json
       Content-Length:
       - '23'
       Connection:
       - close
+      Server:
+      - Server
+      Date:
+      - Tue, 25 Aug 2026 18:31:09 GMT
+      Edge-Cache-Control:
+      - no-store,no-cache,stale-if-error=0,stale-while-revalidate=0
       X-Amz-Rid:
-      - 8C0BKNC8ZVWV8PBENW77
+      - EC8P0AQT0QXY1707G5Z5
       X-Amzn-Requestid:
-      - 0ed7b706-65e7-4320-8e86-4bf2c899ff59
+      - 96785c1f-fc60-40f5-8c6c-9aea5e324db8
       X-Amzn-Remapped-X-Amzn-Requestid:
-      - 8b24de5c-5dd1-425d-9f47-6fa5725e4d18
+      - ca23632a-0c15-457e-b13c-20a8626154ce
       X-Amzn-Remapped-Content-Length:
       - '23'
       X-Amz-Apigw-Id:
-      - ZxXB4GPOoAMFv6A=
+      - Cq_ZGGAmZBkFTjQ=
       X-Amzn-Trace-Id:
-      - Root=1-69aa053e-5eabee449c217e3ed640ddc7
+      - Root=1-6a8ddf6c-6b204cc4ed639a5e2f9f290a
       X-Amzn-Remapped-Date:
-      - Thu, 05 Mar 2026 22:35:42 GMT
+      - Tue, 25 Aug 2026 18:31:09 GMT
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 80779e7124f8d44ce2216c35ac5328a8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - AMS1-P2
+      X-Amz-Cf-Id:
+      - kBZ2Gzp5NI_Oc41I5IV1vyPb20iZVGu_fLYUcPzBhv7rEacu8GSzcA==
     body:
       encoding: UTF-8
       string: '{"advertisingDeals":[]}'
-  recorded_at: Thu, 05 Mar 2026 22:35:43 GMT
+  recorded_at: Tue, 25 Aug 2026 18:31:09 GMT
 recorded_with: VCR 6.4.0

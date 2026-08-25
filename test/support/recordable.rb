@@ -6,6 +6,7 @@ require "webmock/minitest"
 VCR.configure do |c|
   c.hook_into(:webmock)
   c.cassette_library_dir = "test/vcr_cassettes"
+  c.ignore_localhost = true
 
   # Filter credentials from LWA request bodies
   ["client_id", "client_secret", "refresh_token"].each do |param|
@@ -35,8 +36,20 @@ VCR.configure do |c|
     end
   end
 
+  # Scrub advertiser identifiers from response bodies
+  c.before_record do |interaction|
+    body = interaction.response.body
+    next unless body
+
+    body.gsub!(/"profileId":\d+/, '"profileId":0')
+    body.gsub!(/ENTITY[0-9A-Z]+/, "FILTERED")
+    body.gsub!(/("accountInfo":\{[^}]*?"id":")[^"]+/, '\1FILTERED')
+    body.gsub!(/"name":"[^"]*"/, '"name":"FILTERED"') if interaction.request.uri.include?("/v2/profiles")
+  end
+
   c.default_cassette_options = {
-    record: :new_episodes,
+    # Never hit the network on CI; a missing cassette should fail loudly
+    record: ENV["CI"] ? :none : :new_episodes,
     match_requests_on: [:method, :uri],
   }
 
