@@ -54,6 +54,30 @@ campaigns = AmazonAds::Campaigns.new(
 campaigns.list_campaigns
 ```
 
+## Error handling
+
+Responses with a 4xx or 5xx status raise `AmazonAds::Error`, which carries the full response:
+
+```ruby
+begin
+  campaigns.list_campaigns
+rescue AmazonAds::Error => e
+  e.status         # 400
+  e.response.body  # Amazon's error document
+end
+```
+
+The error supports pattern matching on status:
+
+```ruby
+case error
+in status: 429 then backoff
+in status: 500..599 then retry
+end
+```
+
+Network failures (`HTTP::ConnectionError`, `HTTP::TimeoutError`) raise as-is, whether or not retries are configured.
+
 ## Development
 
 See [AGENTS.md](AGENTS.md).
