@@ -15,7 +15,7 @@ module AmazonAds
     end
 
     # Query advertisingDealTarget
-    #: (advertising_deal_id_filter: String, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
+    #: (advertising_deal_id_filter: untyped, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
     def sb_query_advertising_deal_target(advertising_deal_id_filter:, max_results: nil, next_token: nil)
       request(:post, "/adsApi/v1/query/advertisingDealTargets/sb", json: { "advertisingDealIdFilter" => advertising_deal_id_filter, "maxResults" => max_results, "nextToken" => next_token }.compact)
     end

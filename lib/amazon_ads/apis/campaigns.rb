@@ -15,7 +15,7 @@ module AmazonAds
     end
 
     # Query campaign
-    #: (ad_product_filter: String, ?campaign_id_filter: String?, ?goal_filter: String?, ?marketplace_scope_filter: String?, ?max_results: Integer?, ?name_filter: String?, ?next_token: String?, ?portfolio_id_filter: String?, ?state_filter: String?) -> HTTP::Response
+    #: (ad_product_filter: untyped, ?campaign_id_filter: untyped?, ?goal_filter: untyped?, ?marketplace_scope_filter: untyped?, ?max_results: Integer?, ?name_filter: untyped?, ?next_token: String?, ?portfolio_id_filter: untyped?, ?state_filter: untyped?) -> HTTP::Response
     def query_campaign(ad_product_filter:, campaign_id_filter: nil, goal_filter: nil, marketplace_scope_filter: nil, max_results: nil, name_filter: nil, next_token: nil, portfolio_id_filter: nil, state_filter: nil)
       request(:post, "/adsApi/v1/query/campaigns", json: { "adProductFilter" => ad_product_filter, "campaignIdFilter" => campaign_id_filter, "goalFilter" => goal_filter, "marketplaceScopeFilter" => marketplace_scope_filter, "maxResults" => max_results, "nameFilter" => name_filter, "nextToken" => next_token, "portfolioIdFilter" => portfolio_id_filter, "stateFilter" => state_filter }.compact)
     end

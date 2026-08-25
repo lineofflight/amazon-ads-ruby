@@ -15,7 +15,7 @@ module AmazonAds
     end
 
     # Query Ad Association
-    #: (?ad_association_id_filter: String?, ?ad_group_id_filter: String?, ?ad_id_filter: String?, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
+    #: (?ad_association_id_filter: untyped?, ?ad_group_id_filter: untyped?, ?ad_id_filter: untyped?, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
     def query_ad_association(ad_association_id_filter: nil, ad_group_id_filter: nil, ad_id_filter: nil, max_results: nil, next_token: nil)
       request(:post, "/adsApi/v1/query/adAssociations", json: { "adAssociationIdFilter" => ad_association_id_filter, "adGroupIdFilter" => ad_group_id_filter, "adIdFilter" => ad_id_filter, "maxResults" => max_results, "nextToken" => next_token }.compact)
     end
