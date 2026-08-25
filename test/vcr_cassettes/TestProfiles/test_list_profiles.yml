@@ -16,7 +16,7 @@ http_interactions:
       Host:
       - api.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
@@ -25,34 +25,34 @@ http_interactions:
       Server:
       - Server
       Date:
-      - Fri, 27 Feb 2026 08:37:56 GMT
+      - Tue, 25 Aug 2026 19:06:24 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1158'
+      - '1152'
       Connection:
       - close
       X-Amz-Rid:
-      - P2P44C0QBZ2R94JRS99Z
+      - AC2M5ZQ5D67EZG92H6KH
       X-Amzn-Requestid:
-      - 3045cc5e-09e0-43cb-81c5-40c8f3984171
+      - bce27e5e-2559-4bf3-b48e-dc0794931976
       X-Amz-Date:
-      - Fri, 27 Feb 2026 08:37:56 GMT
+      - Tue, 25 Aug 2026 19:06:24 GMT
       Cache-Control:
       - no-cache, no-store, must-revalidate
       Pragma:
       - no-cache
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
     body:
       encoding: UTF-8
       string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
-  recorded_at: Fri, 27 Feb 2026 08:37:56 GMT
+  recorded_at: Tue, 25 Aug 2026 19:06:24 GMT
 - request:
     method: get
-    uri: https://advertising-api.amazon.com/v2/profiles
+    uri: https://advertising-api-eu.amazon.com/v2/profiles
     body:
       encoding: ASCII-8BIT
       base64_string: ''
@@ -60,42 +60,52 @@ http_interactions:
       Authorization:
       - FILTERED
       Amazon-Advertising-Api-Clientid:
-      - amzn1.application-oa2-client.2bc51f89e50e482b902ae4d2a6a0cbf4
+      - FILTERED
       Content-Type:
       - application/json
       Accept:
       - application/json
+      Amazon-Advertising-Api-Scope:
+      - FILTERED
       Connection:
       - close
       Host:
-      - advertising-api.amazon.com
+      - advertising-api-eu.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
-      - Server
-      Date:
-      - Fri, 27 Feb 2026 08:37:57 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - close
-      X-Amz-Rid:
-      - XCSXK23SPF418AYNB0YS
-      X-Amz-Request-Id:
-      - XCSXK23SPF418AYNB0YS
-      Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      Server:
+      - Server
+      Date:
+      - Tue, 25 Aug 2026 19:06:27 GMT
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
+      Edge-Cache-Control:
+      - no-store,no-cache,stale-if-error=0,stale-while-revalidate=0
+      X-Amz-Rid:
+      - XXEJRCR40JB8HYHZK7BA
+      Vary:
+      - Accept-Encoding,User-Agent
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 4a3271596b4750a635e84d92a47448bc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - AMS1-P2
+      X-Amz-Cf-Id:
+      - 9a_4XoIUbs_Sxlyf3CF6U27LHuj6vCo7aYcR-EuVzMjWAhtJYxsOAA==
     body:
       encoding: UTF-8
-      string: '[{"profileId":679103767043058,"countryCode":"BR","currencyCode":"BRL","timezone":"America/Sao_Paulo","accountInfo":{"marketplaceStringId":"A2Q3Y263D00KWC","id":"ENTITY2SY03JDKGWHRK","type":"vendor","name":"pulsify","validPaymentMethod":false}},{"profileId":2713484138696861,"countryCode":"CA","currencyCode":"CAD","timezone":"America/Los_Angeles","accountInfo":{"marketplaceStringId":"A2EUQ1WTGCTBG2","id":"ENTITYN6PLD06CX91G","type":"vendor","name":"pulsify","validPaymentMethod":false}},{"profileId":3765410384747100,"countryCode":"MX","currencyCode":"MXN","timezone":"America/Los_Angeles","accountInfo":{"marketplaceStringId":"A1AM78C64UM0Y8","id":"ENTITY19MOWYB2RJVYW","type":"vendor","name":"pulsify","validPaymentMethod":false}},{"profileId":3982475484689176,"countryCode":"US","currencyCode":"USD","timezone":"America/Los_Angeles","accountInfo":{"marketplaceStringId":"ATVPDKIKX0DER","id":"ENTITY28XY1R1V7RK3K","type":"vendor","name":"pulsify","validPaymentMethod":true}}]'
-  recorded_at: Fri, 27 Feb 2026 08:37:57 GMT
+      string: '[{"profileId":0,"countryCode":"IE","currencyCode":"EUR","dailyBudget":9.99999999E8,"timezone":"Europe/Dublin","accountInfo":{"marketplaceStringId":"A28R8C7NBKEWEA","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"IE","currencyCode":"EUR","timezone":"Europe/Dublin","accountInfo":{"marketplaceStringId":"A28R8C7NBKEWEA","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"BE","currencyCode":"EUR","dailyBudget":9.99999999E8,"timezone":"Europe/Brussels","accountInfo":{"marketplaceStringId":"AMEN7PMS3EDWL","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"BE","currencyCode":"EUR","timezone":"Europe/Brussels","accountInfo":{"marketplaceStringId":"AMEN7PMS3EDWL","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"SA","currencyCode":"SAR","timezone":"Asia/Riyadh","accountInfo":{"marketplaceStringId":"A17E79C6D8DWNP","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"UK","currencyCode":"GBP","dailyBudget":9.99999999E8,"timezone":"Europe/London","accountInfo":{"marketplaceStringId":"A1F83G8C2ARO7P","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"UK","currencyCode":"GBP","timezone":"Europe/London","accountInfo":{"marketplaceStringId":"A1F83G8C2ARO7P","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"AE","currencyCode":"AED","dailyBudget":9.99999999E8,"timezone":"Asia/Dubai","accountInfo":{"marketplaceStringId":"A2VIGQ35RCS4UG","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"AE","currencyCode":"AED","timezone":"Asia/Dubai","accountInfo":{"marketplaceStringId":"A2VIGQ35RCS4UG","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"IT","currencyCode":"EUR","dailyBudget":9.99999999E8,"timezone":"Europe/Paris","accountInfo":{"marketplaceStringId":"APJ6JRA9NG5V4","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"IT","currencyCode":"EUR","timezone":"Europe/Paris","accountInfo":{"marketplaceStringId":"APJ6JRA9NG5V4","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"EG","currencyCode":"EGP","timezone":"Africa/Cairo","accountInfo":{"marketplaceStringId":"ARBP9OOSHTCHU","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"ZA","currencyCode":"ZAR","timezone":"Africa/Johannesburg","accountInfo":{"marketplaceStringId":"AE08WJ6YKNBMC","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"SE","currencyCode":"SEK","dailyBudget":9.99999999E8,"timezone":"Europe/Stockholm","accountInfo":{"marketplaceStringId":"A2NODRKZP88ZB9","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"SE","currencyCode":"SEK","timezone":"Europe/Stockholm","accountInfo":{"marketplaceStringId":"A2NODRKZP88ZB9","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"PL","currencyCode":"PLN","dailyBudget":9.99999999E8,"timezone":"Europe/Warsaw","accountInfo":{"marketplaceStringId":"A1C3SOZRARQ6R3","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"PL","currencyCode":"PLN","timezone":"Europe/Warsaw","accountInfo":{"marketplaceStringId":"A1C3SOZRARQ6R3","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"TR","currencyCode":"TRY","timezone":"Europe/Istanbul","accountInfo":{"marketplaceStringId":"A33AVAJ2PDY3EV","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"FR","currencyCode":"EUR","dailyBudget":9.99999999E8,"timezone":"Europe/Paris","accountInfo":{"marketplaceStringId":"A13V1IB3VIYZZH","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"FR","currencyCode":"EUR","timezone":"Europe/Paris","accountInfo":{"marketplaceStringId":"A13V1IB3VIYZZH","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"NL","currencyCode":"EUR","dailyBudget":9.99999999E8,"timezone":"Europe/Amsterdam","accountInfo":{"marketplaceStringId":"A1805IZSGTT6HS","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"NL","currencyCode":"EUR","timezone":"Europe/Amsterdam","accountInfo":{"marketplaceStringId":"A1805IZSGTT6HS","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"IN","currencyCode":"INR","timezone":"Asia/Kolkata","accountInfo":{"marketplaceStringId":"A21TJRUUN4KGV","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"ES","currencyCode":"EUR","dailyBudget":9.99999999E8,"timezone":"Europe/Paris","accountInfo":{"marketplaceStringId":"A1RKKUPIHCS9HS","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"ES","currencyCode":"EUR","timezone":"Europe/Paris","accountInfo":{"marketplaceStringId":"A1RKKUPIHCS9HS","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}},{"profileId":0,"countryCode":"DE","currencyCode":"EUR","dailyBudget":9.99999999E8,"timezone":"Europe/Paris","accountInfo":{"marketplaceStringId":"A1PA6795UKMFR9","id":"FILTERED","type":"seller","name":"FILTERED","validPaymentMethod":true}},{"profileId":0,"countryCode":"DE","currencyCode":"EUR","timezone":"Europe/Paris","accountInfo":{"marketplaceStringId":"A1PA6795UKMFR9","id":"FILTERED","type":"vendor","name":"FILTERED","validPaymentMethod":false}}]'
+  recorded_at: Tue, 25 Aug 2026 19:06:27 GMT
 recorded_with: VCR 6.4.0

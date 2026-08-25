@@ -16,7 +16,7 @@ http_interactions:
       Host:
       - api.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
@@ -25,29 +25,29 @@ http_interactions:
       Server:
       - Server
       Date:
-      - Thu, 05 Mar 2026 14:57:14 GMT
+      - Tue, 25 Aug 2026 18:31:12 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1159'
+      - '1156'
       Connection:
       - close
       X-Amz-Rid:
-      - 3WY39SVWRKNDYZG85K2F
+      - EC3KK4VTEV5C0PX0Q18D
       X-Amzn-Requestid:
-      - 582dbcd1-1892-46a8-aeaf-f591574fa2cb
+      - 70a6899c-1d33-4103-8911-c0b4ec7224dc
       X-Amz-Date:
-      - Thu, 05 Mar 2026 14:57:14 GMT
+      - Tue, 25 Aug 2026 18:31:12 GMT
       Cache-Control:
       - no-cache, no-store, must-revalidate
       Pragma:
       - no-cache
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
     body:
       encoding: UTF-8
       string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
-  recorded_at: Thu, 05 Mar 2026 14:57:14 GMT
+  recorded_at: Tue, 25 Aug 2026 18:31:12 GMT
 recorded_with: VCR 6.4.0

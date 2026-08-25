@@ -16,7 +16,7 @@ http_interactions:
       Host:
       - api.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
@@ -25,34 +25,34 @@ http_interactions:
       Server:
       - Server
       Date:
-      - Fri, 06 Mar 2026 17:04:45 GMT
+      - Tue, 25 Aug 2026 18:30:59 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1166'
+      - '1163'
       Connection:
       - close
       X-Amz-Rid:
-      - 1ZSAJ7X6Q6XJMDR0ZS4N
+      - CYYD03VMFY7VK6D1C9CW
       X-Amzn-Requestid:
-      - 849089d9-b5c2-498f-9335-d0466d4898de
+      - 47ab5020-64a8-451c-8e94-6ed609669117
       X-Amz-Date:
-      - Fri, 06 Mar 2026 17:04:45 GMT
+      - Tue, 25 Aug 2026 18:30:59 GMT
       Cache-Control:
       - no-cache, no-store, must-revalidate
       Pragma:
       - no-cache
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
     body:
       encoding: UTF-8
       string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
-  recorded_at: Fri, 06 Mar 2026 17:04:45 GMT
+  recorded_at: Tue, 25 Aug 2026 18:30:59 GMT
 - request:
     method: delete
-    uri: https://advertising-api.amazon.com/reporting/reports/4b47565f-1e46-456e-8a98-4264b3c85ec4
+    uri: https://advertising-api-eu.amazon.com/reporting/reports/98cb7c6b-e560-489c-bf08-86e16fadbdcb
     body:
       encoding: ASCII-8BIT
       base64_string: ''
@@ -70,48 +70,58 @@ http_interactions:
       Connection:
       - close
       Host:
-      - advertising-api.amazon.com
+      - advertising-api-eu.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
-      - Server
-      Date:
-      - Fri, 06 Mar 2026 17:04:46 GMT
       Content-Type:
       - application/json
       Content-Length:
       - '91'
       Connection:
       - close
+      Server:
+      - Server
+      Date:
+      - Tue, 25 Aug 2026 18:31:00 GMT
+      Edge-Cache-Control:
+      - no-store,no-cache,stale-if-error=0,stale-while-revalidate=0
       X-Amz-Rid:
-      - YRCARNV0KMYNPBPQ3SQW
+      - VF373XZX6YCTSXPWYAQP
       X-Amzn-Requestid:
-      - 10a644c4-8a94-4b36-8f0f-6fc95fb82f50
+      - d8af00b2-16ee-46dd-897a-66f63e719fb3
       X-Amzn-Remapped-X-Amzn-Requestid:
-      - 4561c56c-e136-40e4-87e6-ff8254c80a3e
+      - c5473ae2-ba1f-437b-a076-a1fc2ca6ac5d
       X-Amzn-Remapped-Content-Length:
       - '91'
       X-Amzn-Remapped-X-Amzn-Remapped-Content-Type:
       - application/vnd.deleteasyncreportresponse.v3+json
       X-Amz-Apigw-Id:
-      - Zz5fREo2IAMFbnQ=
+      - Cq_XsG8rDoEF94A=
       X-Amzn-Trace-Id:
-      - Root=1-69ab092e-79100bdf2148da5b166faa07
+      - Root=1-6a8ddf63-6ca5b1d9f05dbcc87d252f30
       X-Amzn-Remapped-Date:
-      - Fri, 06 Mar 2026 17:04:46 GMT
+      - Tue, 25 Aug 2026 18:31:00 GMT
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7b80fdb7de25e1eb41eb907750147f34.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - AMS1-P2
+      X-Amz-Cf-Id:
+      - WVe210wnuiMs-2gItkDRaIyJgOdvzV33baDXOGvV80DujwUuXgGfPA==
     body:
       encoding: UTF-8
-      string: '{"code":"200","detail":"Report deleted","reportId":"4b47565f-1e46-456e-8a98-4264b3c85ec4"}
+      string: '{"code":"200","detail":"Report deleted","reportId":"98cb7c6b-e560-489c-bf08-86e16fadbdcb"}
 
         '
-  recorded_at: Fri, 06 Mar 2026 17:04:46 GMT
+  recorded_at: Tue, 25 Aug 2026 18:31:00 GMT
 recorded_with: VCR 6.4.0

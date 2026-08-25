@@ -15,8 +15,8 @@ class TestReporting < Minitest::Test
         "timeUnit" => "DAILY",
         "format" => "GZIP_JSON",
       },
-      start_date: "2026-01-01",
-      end_date: "2026-01-02",
+      start_date: "2026-08-01",
+      end_date: "2026-08-02",
       name: "SP Campaign Report",
     )
 
@@ -25,13 +25,13 @@ class TestReporting < Minitest::Test
   end
 
   def test_get_async_report
-    res = @api.get_async_report("4b47565f-1e46-456e-8a98-4264b3c85ec4")
+    res = @api.get_async_report("98cb7c6b-e560-489c-bf08-86e16fadbdcb")
 
     assert_predicate(res.status, :success?)
   end
 
   def test_delete_async_report
-    res = @api.delete_async_report("4b47565f-1e46-456e-8a98-4264b3c85ec4")
+    res = @api.delete_async_report("98cb7c6b-e560-489c-bf08-86e16fadbdcb")
 
     assert_predicate(res.status, :success?)
   end

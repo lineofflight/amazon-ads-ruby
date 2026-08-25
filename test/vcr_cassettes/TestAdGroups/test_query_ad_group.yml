@@ -16,7 +16,7 @@ http_interactions:
       Host:
       - api.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
@@ -25,34 +25,34 @@ http_interactions:
       Server:
       - Server
       Date:
-      - Thu, 05 Mar 2026 22:35:46 GMT
+      - Tue, 25 Aug 2026 18:31:11 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1156'
+      - '1160'
       Connection:
       - close
       X-Amz-Rid:
-      - RZP4XJFY6KVXNB685VRD
+      - GQ52KVG43QWD91JX0JCQ
       X-Amzn-Requestid:
-      - 94f85874-5dbb-48bf-9191-b6b6d5d25a8a
+      - 982dedc4-901c-49b5-b05c-a7e27a05c1e5
       X-Amz-Date:
-      - Thu, 05 Mar 2026 22:35:46 GMT
+      - Tue, 25 Aug 2026 18:31:11 GMT
       Cache-Control:
       - no-cache, no-store, must-revalidate
       Pragma:
       - no-cache
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
     body:
       encoding: UTF-8
       string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
-  recorded_at: Thu, 05 Mar 2026 22:35:46 GMT
+  recorded_at: Tue, 25 Aug 2026 18:31:11 GMT
 - request:
     method: post
-    uri: https://advertising-api.amazon.com/adsApi/v1/query/adGroups
+    uri: https://advertising-api-eu.amazon.com/adsApi/v1/query/adGroups
     body:
       encoding: UTF-8
       string: '{"adProductFilter":{"include":["SPONSORED_PRODUCTS"]}}'
@@ -70,46 +70,56 @@ http_interactions:
       Connection:
       - close
       Host:
-      - advertising-api.amazon.com
+      - advertising-api-eu.amazon.com
       User-Agent:
-      - http.rb/5.3.1
+      - http.rb/6.0.4
   response:
     status:
       code: 200
       message: OK
     headers:
-      Server:
-      - Server
-      Date:
-      - Thu, 05 Mar 2026 22:35:47 GMT
       Content-Type:
       - application/json
       Content-Length:
       - '15'
       Connection:
       - close
+      Server:
+      - Server
+      Date:
+      - Tue, 25 Aug 2026 18:31:11 GMT
+      Edge-Cache-Control:
+      - no-store,no-cache,stale-if-error=0,stale-while-revalidate=0
       X-Amz-Rid:
-      - FYH18B9K6XNE9NNW1YG7
+      - H1BQYX6NVEWV63PWJJY4
       X-Amzn-Requestid:
-      - eecde388-f756-4a9d-b9bd-b29f001793c8
+      - abed210a-9ce1-4046-88d7-5a4cf3fb7157
       X-Amzn-Remapped-X-Amzn-Requestid:
-      - eecde388-f756-4a9d-b9bd-b29f001793c8
+      - abed210a-9ce1-4046-88d7-5a4cf3fb7157
       X-Amzn-Remapped-Content-Length:
       - '15'
       X-Amz-Apigw-Id:
-      - ZxXCiGSyIAMF7GA=
+      - Cq_ZkHLjjoEFRyA=
       X-Amzn-Remapped-Server:
       - Apache-Coyote/1.1
       X-Amzn-Trace-Id:
-      - Root=1-69aa0543-5838e008408151cc295d9882
+      - Root=1-6a8ddf6f-ee1a84d74c1feef4ae3c32a8
       X-Amzn-Remapped-Date:
-      - Thu, 05 Mar 2026 22:35:47 GMT
+      - Tue, 25 Aug 2026 18:31:11 GMT
       Vary:
-      - Content-Type,Accept-Encoding,User-Agent
+      - Accept-Encoding,User-Agent
       Strict-Transport-Security:
       - max-age=47474747; includeSubDomains; preload
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 8662e3c152f0b241b5d273e9b0c8f9fc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - AMS1-P2
+      X-Amz-Cf-Id:
+      - l8iwY74mAarKpbmap8ZAD8wWIFEbnpmNfQcJ8We19P5v2Madpjxo7w==
     body:
       encoding: UTF-8
       string: '{"adGroups":[]}'
-  recorded_at: Thu, 05 Mar 2026 22:35:47 GMT
+  recorded_at: Tue, 25 Aug 2026 18:31:11 GMT
 recorded_with: VCR 6.4.0
