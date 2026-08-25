@@ -23,6 +23,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency("cgi")
-  spec.add_dependency("http", "~> 5.3")
+  spec.add_dependency("http", "~> 6.0")
   spec.add_dependency("zeitwerk", "~> 2.6")
 end
