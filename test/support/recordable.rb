@@ -48,7 +48,8 @@ VCR.configure do |c|
   end
 
   c.default_cassette_options = {
-    record: :new_episodes,
+    # Never hit the network on CI; a missing cassette should fail loudly
+    record: ENV["CI"] ? :none : :new_episodes,
     match_requests_on: [:method, :uri],
   }
 
