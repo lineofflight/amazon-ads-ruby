@@ -66,9 +66,11 @@ module AmazonAds
       response
     rescue HTTP::OutOfRetriesError => e
       response = e.response
-      raise e unless response
+      raise Error.build(response) if response
 
-      raise Error.build(response)
+      # No response means a transport error; re-raise as if never retried
+      cause = e.cause #: Exception
+      raise cause
     end
 
     #: () -> Hash[String, String]

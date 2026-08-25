@@ -59,6 +59,24 @@ class TestErrorRaising < Minitest::Test
     assert_equal('{"message":"Throttled"}', error.response.body.to_s)
   end
 
+  def test_transport_error_passes_through
+    port = serve_nothing(connections: 1)
+    api = build_api(port)
+
+    assert_raises(HTTP::ConnectionError) do
+      api.send(:request, :get, "/test")
+    end
+  end
+
+  def test_transport_error_passes_through_with_retries
+    port = serve_nothing(connections: 2)
+    api = build_api(port, retries: 1)
+
+    assert_raises(HTTP::ConnectionError) do
+      api.send(:request, :get, "/test")
+    end
+  end
+
   def test_lwa_error_raises_with_body
     stub_request(:post, AmazonAds::LWA::URL)
       .to_return(status: 400, body: '{"error":"invalid_grant"}')
@@ -77,6 +95,18 @@ class TestErrorRaising < Minitest::Test
     api = LocalAPI.new(region: :na, access_token: "token", retries: retries)
     api.port = port
     api
+  end
+
+  def serve_nothing(connections:)
+    server = TCPServer.new("127.0.0.1", 0)
+    port = server.addr[1]
+
+    Thread.new do
+      connections.times { server.accept.close }
+      server.close
+    end
+
+    port
   end
 
   def serve(status:, body:, requests: 1)
