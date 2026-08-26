@@ -24,6 +24,11 @@ VCR.configure do |c|
     end
   end
 
+  # Filter pagination tokens, which can embed resource ids
+  c.filter_sensitive_data("FILTERED") do |interaction|
+    interaction.response.body.to_s[/(?<="nextToken":")[^"]+/]
+  end
+
   # Filter auth headers (webmock normalizes header keys)
   [
     "Authorization",

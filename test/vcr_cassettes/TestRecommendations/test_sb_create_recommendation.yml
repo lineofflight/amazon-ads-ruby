@@ -1,0 +1,123 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.amazon.com/auth/o2/token
+    body:
+      encoding: ASCII-8BIT
+      base64_string: |
+        Z3JhbnRfdHlwZT1yZWZyZXNoX3Rva2VuJmNsaWVudF9pZD1GSUxURVJFRCZj
+        bGllbnRfc2VjcmV0PUZJTFRFUkVEJnJlZnJlc2hfdG9rZW49RklMVEVSRUQ=
+    headers:
+      Connection:
+      - close
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Host:
+      - api.amazon.com
+      User-Agent:
+      - http.rb/6.0.4
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Server
+      Date:
+      - Wed, 26 Aug 2026 15:04:06 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '1156'
+      Connection:
+      - close
+      X-Amz-Rid:
+      - G9J1K2XG4GYNKGZ8209B
+      X-Amzn-Requestid:
+      - daf9360d-979e-43fe-921b-626ae4066d13
+      X-Amz-Date:
+      - Wed, 26 Aug 2026 15:04:05 GMT
+      Cache-Control:
+      - no-cache, no-store, must-revalidate
+      Pragma:
+      - no-cache
+      Vary:
+      - Accept-Encoding,User-Agent
+      Strict-Transport-Security:
+      - max-age=47474747; includeSubDomains; preload
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
+  recorded_at: Wed, 26 Aug 2026 15:04:06 GMT
+- request:
+    method: post
+    uri: https://advertising-api-eu.amazon.com/adsApi/v1/create/recommendations/sb
+    body:
+      encoding: UTF-8
+      string: '{"recommendations":[{"recommendationType":"BRANDED_KEYWORD"}]}'
+    headers:
+      Authorization:
+      - FILTERED
+      Amazon-Advertising-Api-Clientid:
+      - FILTERED
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      Amazon-Advertising-Api-Scope:
+      - FILTERED
+      Connection:
+      - close
+      Host:
+      - advertising-api-eu.amazon.com
+      User-Agent:
+      - http.rb/6.0.4
+  response:
+    status:
+      code: 207
+      message: Multi-Status
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '335'
+      Connection:
+      - close
+      Server:
+      - Server
+      Date:
+      - Wed, 26 Aug 2026 15:04:06 GMT
+      Edge-Cache-Control:
+      - no-store,no-cache,stale-if-error=0,stale-while-revalidate=0
+      X-Amz-Rid:
+      - JA6B0AASYN5H0WJ59XN6
+      X-Amzn-Requestid:
+      - d243f5ed-a1a2-4ce0-80b2-72dd31f51341
+      X-Amzn-Remapped-X-Amzn-Requestid:
+      - bf394080-5fdc-45b0-b4db-220ae46a27e0
+      X-Amzn-Remapped-Content-Length:
+      - '335'
+      X-Amz-Apigw-Id:
+      - Ct0ADEweZBkF6Yg=
+      X-Amzn-Trace-Id:
+      - Root=1-6a8f0066-b821220d97fd56d569daa9ac
+      X-Amzn-Remapped-Date:
+      - Wed, 26 Aug 2026 15:04:06 GMT
+      Vary:
+      - User-Agent,Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=47474747; includeSubDomains; preload
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 7b80fdb7de25e1eb41eb907750147f34.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - AMS1-P2
+      X-Amz-Cf-Id:
+      - 2bRiKQCuCcVENsDb2mwPqIYcHgKENYgw2GRuzu7xNFYwkHfYP-_W_g==
+    body:
+      encoding: UTF-8
+      string: '{"success":[{"index":0,"recommendation":{"recommendationId":"ebd54225-deb9-4631-bbce-57bdd4a9f949","recommendationType":"BRANDED_KEYWORD","recommendationTypeDetails":{"brandedKeywordRecommendationTypeDetails":{"brandAlternateId":[]}},"recommendedObjects":[{"recommendedObjectSettings":{"brandedKeywordList":{"brandedKeyword":[]}}}]}}]}'
+  recorded_at: Wed, 26 Aug 2026 15:04:06 GMT
+recorded_with: VCR 6.4.0
