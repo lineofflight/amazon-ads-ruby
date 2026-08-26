@@ -3,8 +3,8 @@
 module AmazonAds
   class AdExtensions < API
     # Create ad extensions - API is in open beta
-    #: (?ad_extensions: Array[untyped]?) -> HTTP::Response
-    def create_ad_extension(ad_extensions: nil)
+    #: (ad_extensions: Array[untyped]) -> HTTP::Response
+    def create_ad_extension(ad_extensions:)
       request(:post, "/adsApi/v1/create/adExtensions", json: { "adExtensions" => ad_extensions }.compact)
     end
 
@@ -15,8 +15,8 @@ module AmazonAds
     end
 
     # Update ad_extension - API is in open beta
-    #: (?ad_extensions: Array[untyped]?) -> HTTP::Response
-    def update_ad_extension(ad_extensions: nil)
+    #: (ad_extensions: Array[untyped]) -> HTTP::Response
+    def update_ad_extension(ad_extensions:)
       request(:post, "/adsApi/v1/update/adExtensions", json: { "adExtensions" => ad_extensions }.compact)
     end
   end

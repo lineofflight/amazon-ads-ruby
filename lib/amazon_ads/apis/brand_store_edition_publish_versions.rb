@@ -9,8 +9,8 @@ module AmazonAds
     end
 
     # Update store edition publish versions
-    #: (?brand_store_edition_publish_versions: Array[untyped]?) -> HTTP::Response
-    def update_brand_store_edition_publish_version(brand_store_edition_publish_versions: nil)
+    #: (brand_store_edition_publish_versions: Array[untyped]) -> HTTP::Response
+    def update_brand_store_edition_publish_version(brand_store_edition_publish_versions:)
       request(:post, "/adsApi/v1/update/brandStoreEditionPublishVersions", json: { "brandStoreEditionPublishVersions" => brand_store_edition_publish_versions }.compact)
     end
   end

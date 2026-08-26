@@ -3,9 +3,9 @@
 module AmazonAds
   class BrandStores < API
     # Query brand store content
-    #: (store_name_filter: untyped, ?max_results: Integer?, ?next_token: String?, ?sort: Array[untyped]?) -> HTTP::Response
-    def query_brand_store(store_name_filter:, max_results: nil, next_token: nil, sort: nil)
-      request(:post, "/adsApi/v1/query/brandStores", json: { "maxResults" => max_results, "nextToken" => next_token, "sort" => sort, "storeNameFilter" => store_name_filter }.compact)
+    #: (store_name_filter: untyped, ?max_results: Integer?, ?next_token: String?) -> HTTP::Response
+    def query_brand_store(store_name_filter:, max_results: nil, next_token: nil)
+      request(:post, "/adsApi/v1/query/brandStores", json: { "maxResults" => max_results, "nextToken" => next_token, "storeNameFilter" => store_name_filter }.compact)
     end
   end
 end

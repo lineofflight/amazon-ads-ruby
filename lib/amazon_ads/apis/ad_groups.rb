@@ -3,14 +3,14 @@
 module AmazonAds
   class AdGroups < API
     # Create ad groups
-    #: (?ad_groups: Array[untyped]?) -> HTTP::Response
-    def create_ad_group(ad_groups: nil)
+    #: (ad_groups: Array[untyped]) -> HTTP::Response
+    def create_ad_group(ad_groups:)
       request(:post, "/adsApi/v1/create/adGroups", json: { "adGroups" => ad_groups }.compact)
     end
 
     # Delete ad groups
-    #: (?ad_group_ids: Array[untyped]?) -> HTTP::Response
-    def delete_ad_group(ad_group_ids: nil)
+    #: (ad_group_ids: Array[untyped]) -> HTTP::Response
+    def delete_ad_group(ad_group_ids:)
       request(:post, "/adsApi/v1/delete/adGroups", json: { "adGroupIds" => ad_group_ids }.compact)
     end
 
@@ -21,8 +21,8 @@ module AmazonAds
     end
 
     # Update ad groups
-    #: (?ad_groups: Array[untyped]?) -> HTTP::Response
-    def update_ad_group(ad_groups: nil)
+    #: (ad_groups: Array[untyped]) -> HTTP::Response
+    def update_ad_group(ad_groups:)
       request(:post, "/adsApi/v1/update/adGroups", json: { "adGroups" => ad_groups }.compact)
     end
   end

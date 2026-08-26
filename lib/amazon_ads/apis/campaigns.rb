@@ -3,14 +3,14 @@
 module AmazonAds
   class Campaigns < API
     # Create campaigns
-    #: (?campaigns: Array[untyped]?) -> HTTP::Response
-    def create_campaign(campaigns: nil)
+    #: (campaigns: Array[untyped]) -> HTTP::Response
+    def create_campaign(campaigns:)
       request(:post, "/adsApi/v1/create/campaigns", json: { "campaigns" => campaigns }.compact)
     end
 
     # Delete campaigns
-    #: (?campaign_ids: Array[untyped]?) -> HTTP::Response
-    def delete_campaign(campaign_ids: nil)
+    #: (campaign_ids: Array[untyped]) -> HTTP::Response
+    def delete_campaign(campaign_ids:)
       request(:post, "/adsApi/v1/delete/campaigns", json: { "campaignIds" => campaign_ids }.compact)
     end
 
@@ -21,8 +21,8 @@ module AmazonAds
     end
 
     # Update campaign
-    #: (?campaigns: Array[untyped]?) -> HTTP::Response
-    def update_campaign(campaigns: nil)
+    #: (campaigns: Array[untyped]) -> HTTP::Response
+    def update_campaign(campaigns:)
       request(:post, "/adsApi/v1/update/campaigns", json: { "campaigns" => campaigns }.compact)
     end
   end

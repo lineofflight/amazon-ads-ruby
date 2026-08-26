@@ -3,14 +3,14 @@
 module AmazonAds
   class Ads < API
     # Create ads
-    #: (?ads: Array[untyped]?) -> HTTP::Response
-    def create_ad(ads: nil)
+    #: (ads: Array[untyped]) -> HTTP::Response
+    def create_ad(ads:)
       request(:post, "/adsApi/v1/create/ads", json: { "ads" => ads }.compact)
     end
 
     # Delete ads
-    #: (?ad_ids: Array[untyped]?) -> HTTP::Response
-    def delete_ad(ad_ids: nil)
+    #: (ad_ids: Array[untyped]) -> HTTP::Response
+    def delete_ad(ad_ids:)
       request(:post, "/adsApi/v1/delete/ads", json: { "adIds" => ad_ids }.compact)
     end
 
@@ -21,8 +21,8 @@ module AmazonAds
     end
 
     # Update ads
-    #: (?ads: Array[untyped]?) -> HTTP::Response
-    def update_ad(ads: nil)
+    #: (ads: Array[untyped]) -> HTTP::Response
+    def update_ad(ads:)
       request(:post, "/adsApi/v1/update/ads", json: { "ads" => ads }.compact)
     end
   end

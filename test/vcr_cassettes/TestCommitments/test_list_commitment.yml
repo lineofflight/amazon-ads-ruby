@@ -25,19 +25,19 @@ http_interactions:
       Server:
       - Server
       Date:
-      - Wed, 26 Aug 2026 21:41:47 GMT
+      - Wed, 26 Aug 2026 22:13:55 GMT
       Content-Type:
       - application/json;charset=UTF-8
       Content-Length:
-      - '1156'
+      - '1158'
       Connection:
       - close
       X-Amz-Rid:
-      - K7GB83PP2JH6ZYRDT0WH
+      - BTZ9WBC98PWBQMNAKEDZ
       X-Amzn-Requestid:
-      - 527d2b0d-82ed-4565-b320-6f27437cf091
+      - 8fe03341-ae5d-4449-842e-94e4e65ad8d4
       X-Amz-Date:
-      - Wed, 26 Aug 2026 21:41:47 GMT
+      - Wed, 26 Aug 2026 22:13:55 GMT
       Cache-Control:
       - no-cache, no-store, must-revalidate
       Pragma:
@@ -49,10 +49,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"access_token":"FILTERED","refresh_token":"FILTERED","token_type":"bearer","expires_in":3600}'
-  recorded_at: Wed, 26 Aug 2026 21:41:47 GMT
+  recorded_at: Wed, 26 Aug 2026 22:13:56 GMT
 - request:
     method: get
-    uri: https://advertising-api-eu.amazon.com/adsApi/v1/commitments/dsp
+    uri: https://advertising-api-eu.amazon.com/adsApi/v1/commitments
     body:
       encoding: ASCII-8BIT
       base64_string: ''
@@ -87,27 +87,27 @@ http_interactions:
       Server:
       - Server
       Date:
-      - Wed, 26 Aug 2026 21:41:48 GMT
+      - Wed, 26 Aug 2026 22:13:56 GMT
       Edge-Cache-Control:
       - no-store,no-cache,stale-if-error=0,stale-while-revalidate=0
       X-Amz-Rid:
-      - 13AB3ABH67GE1SN07KQN
+      - 6HMTZZY12F91Y3KTVNF0
       X-Amzn-Requestid:
-      - c9bc1e2d-66a9-4507-b45c-79691970d44b
+      - 4767c09a-3bbc-45f2-896c-9738b916f340
       X-Amzn-Remapped-X-Amzn-Requestid:
-      - 6907ecde-ba9b-4271-bf49-615e317df60f
+      - 80961188-7650-4998-8cae-1f04f753a3e9
       X-Amzn-Remapped-Content-Length:
       - '93'
       X-Amzn-Remapped-Connection:
       - keep-alive
       X-Amz-Apigw-Id:
-      - CuuQdF3kDoEFTTA=
+      - Cuy9vEi2joEFtMg=
       X-Amzn-Remapped-Server:
       - Apache-Coyote/1.1
       X-Amzn-Trace-Id:
-      - Root=1-6a8f5d9c-72884e87715b41a50473f5eb
+      - Root=1-6a8f6524-590dd82590d7557dc4d3b89d
       X-Amzn-Remapped-Date:
-      - Wed, 26 Aug 2026 21:41:48 GMT
+      - Wed, 26 Aug 2026 22:13:56 GMT
       Vary:
       - Accept-Encoding,User-Agent
       Strict-Transport-Security:
@@ -115,13 +115,13 @@ http_interactions:
       X-Cache:
       - Miss from cloudfront
       Via:
-      - 1.1 3bdef981159de9c713020c64476ba0e4.cloudfront.net (CloudFront)
+      - 1.1 e802bba79ff3efb2497084ca4babc248.cloudfront.net (CloudFront)
       X-Amz-Cf-Pop:
       - AMS1-P2
       X-Amz-Cf-Id:
-      - Is4PgpoHHvWzx3qFvMPS1_oqqouNXJcCJbaVPMmhFBMfwWRo11HGsA==
+      - FS9puJzdR4t7ap7uCmIVawwTRGw1o9BvHPJVe9ZjxHRKyuGrs8BJ2Q==
     body:
       encoding: UTF-8
       string: '{"commitments":[],"nextToken":"FILTERED"}'
-  recorded_at: Wed, 26 Aug 2026 21:41:48 GMT
+  recorded_at: Wed, 26 Aug 2026 22:13:56 GMT
 recorded_with: VCR 6.4.0

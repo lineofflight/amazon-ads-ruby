@@ -3,14 +3,14 @@
 module AmazonAds
   class AdAssociations < API
     # Create Ad Association
-    #: (?ad_associations: Array[untyped]?) -> HTTP::Response
-    def create_ad_association(ad_associations: nil)
+    #: (ad_associations: Array[untyped]) -> HTTP::Response
+    def create_ad_association(ad_associations:)
       request(:post, "/adsApi/v1/create/adAssociations", json: { "adAssociations" => ad_associations }.compact)
     end
 
     # Delete Ad Association
-    #: (?ad_association_ids: Array[untyped]?) -> HTTP::Response
-    def delete_ad_association(ad_association_ids: nil)
+    #: (ad_association_ids: Array[untyped]) -> HTTP::Response
+    def delete_ad_association(ad_association_ids:)
       request(:post, "/adsApi/v1/delete/adAssociations", json: { "adAssociationIds" => ad_association_ids }.compact)
     end
 
@@ -21,8 +21,8 @@ module AmazonAds
     end
 
     # Update Ad Association
-    #: (?ad_associations: Array[untyped]?) -> HTTP::Response
-    def update_ad_association(ad_associations: nil)
+    #: (ad_associations: Array[untyped]) -> HTTP::Response
+    def update_ad_association(ad_associations:)
       request(:post, "/adsApi/v1/update/adAssociations", json: { "adAssociations" => ad_associations }.compact)
     end
   end
