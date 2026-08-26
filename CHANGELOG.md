@@ -1,5 +1,13 @@
 ## [Unreleased]
 
+## [0.5.0] - 2026-08-27
+
+- Regenerate API classes from updated Amazon specs
+- Require request body arrays in create/update/delete methods (breaking)
+- Add 17 API classes: manager/advertiser/selling accounts, geo locations, location indexes, deal preferences, reserved target pricings, supplier proposals suite
+- Add ad-product-agnostic commitment endpoints; /dsp variants remain as deprecated aliases
+- Remove sort param from query_brand_store (dropped upstream)
+
 ## [0.4.0] - 2026-08-26
 
 - Raise AmazonAds::Error on 4xx/5xx responses instead of HTTP::StatusError
@@ -31,7 +39,8 @@
 - OpenAPI-based code generator
 - RBS type signatures
 
-[Unreleased]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/lineofflight/amazon-ads-ruby/compare/v0.1.0...v0.2.0
