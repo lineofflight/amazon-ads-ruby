@@ -9,22 +9,15 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
-desc "Install RBS collection"
-task :rbs_collection do
-  sh "rbs collection install"
-end
-
-desc "Run type checking with Steep"
+desc "Check types with Steep"
 task :steep do
   sh "steep check"
 end
 
-namespace :specs do
-  desc "Download OpenAPI specs from Amazon Ads"
-  task :download do
-    require_relative "lib/generator/specs"
-    Generator::Specs.download_all
-  end
+desc "Download OpenAPI specs from Amazon Ads"
+task :download do
+  require_relative "lib/generator/specs"
+  Generator::Specs.download_all
 end
 
 desc "Generate API classes from OpenAPI specs"
@@ -42,4 +35,4 @@ task :generate do
   end
 end
 
-task default: [:rubocop, :rbs_collection, :steep, :test]
+task default: [:rubocop, :steep, :test]
