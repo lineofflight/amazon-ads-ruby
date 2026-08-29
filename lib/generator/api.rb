@@ -195,7 +195,7 @@ module Generator
         args << "json: json"
       end
       if content_type && content_type != "application/json"
-        args << "headers: { \"Content-Type\" => \"#{content_type}\" }"
+        args << "headers: { \"Content-Type\" => \"#{content_type}\", \"Accept\" => \"#{content_type}\" }"
       end
       args.empty? ? "" : ", #{args.join(", ")}"
     end

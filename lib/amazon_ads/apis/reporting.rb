@@ -9,7 +9,7 @@ module AmazonAds
     # @rbs start_date: String -- YYYY-MM-DD format. The maximum lookback window supported depends on the selection of reportTypeId. Most report types support `95 days` as lookback window.
     #: (configuration: untyped, end_date: String, start_date: String, ?name: String?) -> HTTP::Response
     def create_async_report(configuration:, end_date:, start_date:, name: nil)
-      request(:post, "/reporting/reports", json: { "configuration" => configuration, "endDate" => end_date, "name" => name, "startDate" => start_date }.compact, headers: { "Content-Type" => "application/vnd.createasyncreportrequest.v3+json" })
+      request(:post, "/reporting/reports", json: { "configuration" => configuration, "endDate" => end_date, "name" => name, "startDate" => start_date }.compact, headers: { "Content-Type" => "application/vnd.createasyncreportrequest.v3+json", "Accept" => "application/vnd.createasyncreportrequest.v3+json" })
     end
 
     # Deletes a report by id
