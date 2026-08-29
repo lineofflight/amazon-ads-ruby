@@ -1,4 +1,7 @@
-## [Unreleased]
+## [0.6.0] - 2026-08-30
+
+- Add Portfolios v3 API (list/create/update/budget usage)
+- Send Accept header matching vendor-versioned request media types
 
 ## [0.5.0] - 2026-08-27
 
