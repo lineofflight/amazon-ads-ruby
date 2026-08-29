@@ -29,7 +29,7 @@ task :generate do
   Generator::API.generate_by_tags("amazon_ads")
 
   # REST specs: generate one class each
-  ["profiles", "reporting", "marketing_stream"].each do |name|
+  ["profiles", "reporting", "marketing_stream", "portfolios"].each do |name|
     Generator::API.new(name).save
   end
 end

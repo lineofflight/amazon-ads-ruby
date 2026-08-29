@@ -13,6 +13,7 @@ module Generator
       profiles: "https://d3a0d0y2hgofx6.cloudfront.net/openapi/en-us/profiles/3-0/openapi.yaml",
       reporting: "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/OfflineReport_prod_3p.json",
       marketing_stream: "https://dtrnk0o2zy01c.cloudfront.net/openapi/en-us/dest/AmazonMarketingStream_prod_3p.json",
+      portfolios: "https://d1y2lf8k3vrkfu.cloudfront.net/openapi/en-us/dest/Portfolios_prod_3p.json",
     }.freeze
 
     SPECS_DIR = File.expand_path("../../specs", __dir__.to_s)
