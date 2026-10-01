@@ -3,6 +3,8 @@
 module AmazonAds
   # Offline Report
   class Reporting < API
+    include AmazonAds::Helpers::Reporting
+
     # Creates a report request
     # @rbs end_date: String -- YYYY-MM-DD format. The maximum lookback window supported depends on the selection of reportTypeId. Most report types support `95 days` as lookback window.
     # @rbs name: String -- The name of the report.

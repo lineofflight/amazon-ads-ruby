@@ -25,6 +25,14 @@ module Generator
       ERB.new(template, trim_mode: "-").result(binding)
     end
 
+    def has_helper?
+      File.exist?(File.expand_path("../../lib/amazon_ads/helpers/#{file_name}.rb", __dir__.to_s))
+    end
+
+    def helper_class_name
+      "AmazonAds::Helpers::#{class_name}"
+    end
+
     def save
       FileUtils.mkdir_p(OUTPUT_DIR)
 
