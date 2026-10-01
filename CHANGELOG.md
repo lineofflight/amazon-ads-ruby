@@ -1,3 +1,9 @@
+## [Unreleased]
+
+- Add Marketing Stream v2 API
+- Add Reporting v1 API
+- Add Inventory Management Unified APIs
+
 ## [0.6.0] - 2026-08-30
 
 - Add Portfolios v3 API (list/create/update/budget usage)
