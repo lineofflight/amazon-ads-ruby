@@ -4,6 +4,8 @@
 - Add Reporting v1 API
 - Add Inventory Management Unified APIs
 - Add download_report helper for Reporting v3
+- Raise typed AmazonAds::Errors subclasses for documented error codes
+- Add code to AmazonAds::Error and its pattern matching
 
 ## [0.6.0] - 2026-08-30
 

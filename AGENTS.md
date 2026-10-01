@@ -12,7 +12,7 @@
 - No emojis, em dashes
 
 ## Design
-- All files in `lib/amazon_ads/apis/` are auto-generated; never hand-edit them
+- All files in `lib/amazon_ads/apis/` and `lib/amazon_ads/errors.rb` are auto-generated; never hand-edit them
 - Stateless LWA: each call to `LWA#request` hits the token endpoint; the caller owns token caching
 - API classes take `access_token` directly; no in-process token management
 - 4xx/5xx responses raise `AmazonAds::Error` (status checked after perform, never via an http feature, so bodies survive); transport errors pass through raw

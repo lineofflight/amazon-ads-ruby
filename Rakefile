@@ -24,9 +24,13 @@ desc "Generate API classes from OpenAPI specs"
 task :generate do
   require_relative "lib/generator/specs"
   require_relative "lib/generator/api"
+  require_relative "lib/generator/errors"
 
   # v1 merged spec: generate one class per tag
   Generator::API.generate_by_tags("amazon_ads")
+
+  # v1 merged spec: generate one error class per ErrorCode
+  Generator::Errors.new.save
 
   # REST specs: generate one class each
   ["profiles", "reporting", "marketing_stream", "portfolios"].each do |name|

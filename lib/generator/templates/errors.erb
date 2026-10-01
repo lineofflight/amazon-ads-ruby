@@ -1,0 +1,20 @@
+# frozen_string_literal: true
+
+module AmazonAds
+  # Errors for the codes Amazon Ads documents in its ErrorCode enum
+  module Errors
+<% errors.each do |error| -%>
+<% if error[:description] -%>
+    # <%= error[:description] %>
+<% end -%>
+    class <%= error[:class_name] %> < Error; end
+
+<% end -%>
+    # Maps Amazon's error codes to their classes
+    CODES = { #: Hash[String, singleton(Error)]
+<% errors.each do |error| -%>
+      "<%= error[:code] %>" => <%= error[:class_name] %>,
+<% end -%>
+    }.freeze
+  end
+end

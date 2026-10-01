@@ -65,15 +65,30 @@ begin
   campaigns.list_campaigns
 rescue AmazonAds::Error => e
   e.status         # 400
+  e.code           # "FIELD_VALUE_IS_INVALID"
   e.response.body  # Amazon's error document
 end
 ```
 
-The error supports pattern matching on status:
+When the response carries one of Amazon's documented error codes, the error is a matching subclass under `AmazonAds::Errors`:
+
+```ruby
+begin
+  campaigns.list_campaigns
+rescue AmazonAds::Errors::TooManyRequests
+  backoff
+rescue AmazonAds::Errors::Unauthorized
+  refresh_token
+end
+```
+
+Unknown or missing codes raise the base `AmazonAds::Error`. Reporting sends the HTTP status as its code, so its errors are always the base class.
+
+The error supports pattern matching on status and code:
 
 ```ruby
 case error
-in status: 429 then backoff
+in code: "TOO_MANY_REQUESTS" then backoff
 in status: 500..599 then retry
 end
 ```
