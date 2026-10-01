@@ -54,6 +54,8 @@ campaigns = AmazonAds::Campaigns.new(
 campaigns.list_campaigns
 ```
 
+Pass `http:` to inject a configured `HTTP` client (e.g. `http: HTTP.use(logging: { logger: Logger.new($stdout) })`). Note that debug logging prints request headers, exposing access tokens.
+
 ## Error handling
 
 Responses with a 4xx or 5xx status raise `AmazonAds::Error`, which carries the full response:
