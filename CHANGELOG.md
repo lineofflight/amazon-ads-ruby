@@ -6,23 +6,23 @@
 
 ## [0.6.0] - 2026-08-30
 
-- Add Portfolios v3 API (list/create/update/budget usage)
+- Add Portfolios v3 API
 - Send Accept header matching vendor-versioned request media types
 
 ## [0.5.0] - 2026-08-27
 
 - Regenerate API classes from updated Amazon specs
 - Require request body arrays in create/update/delete methods (breaking)
-- Add 17 API classes: manager/advertiser/selling accounts, geo locations, location indexes, deal preferences, reserved target pricings, supplier proposals suite
-- Add ad-product-agnostic commitment endpoints; /dsp variants remain as deprecated aliases
-- Remove sort param from query_brand_store (dropped upstream)
+- Add 17 API classes
+- Add ad-product-agnostic commitment endpoints
+- Remove sort param from query_brand_store
 
 ## [0.4.0] - 2026-08-26
 
-- Raise AmazonAds::Error on 4xx/5xx responses instead of HTTP::StatusError
-- Preserve error response bodies (previously lost when the connection closed)
-- Raise AmazonAds::Error when retries exhaust on 429, instead of HTTP::OutOfRetriesError
-- Re-raise underlying transport errors when retries exhaust on network failures
+- Raise AmazonAds::Error on 4xx/5xx responses
+- Preserve error response bodies
+- Raise AmazonAds::Error when retries exhaust on 429
+- Re-raise underlying transport errors on network failures
 
 ## [0.3.0] - 2026-08-25
 
@@ -36,7 +36,7 @@
 - Generate 20+ API classes from OpenAPI specs
 - Fix generator handling of $ref body parameters
 - Add VCR-based integration tests
-- Add client_id/client_secret with ENV fallback on AmazonAds module
+- Add client_id and client_secret with ENV fallback
 
 ## [0.1.0] - 2025-12-27
 
